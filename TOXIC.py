@@ -1192,7 +1192,7 @@ def result(OKs,cps):
         exit()
 def linex():print(f'{A}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')    
 #------------------[ APPROVAL SYSTEM ]-------------------#
-'''
+
 def approval():
   os.system('git pull')
   time.sleep(1)
@@ -1223,7 +1223,7 @@ def approval():
      time.sleep(2)
      exit() 
 approval() 
-'''
+
 #_________[ MAIN MENU ]______>>
 def toxic():   
     os.system('clear')
