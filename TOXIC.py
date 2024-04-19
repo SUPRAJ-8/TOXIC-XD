@@ -1204,7 +1204,6 @@ def approval():
 
     # Clear the screen and display banner and info
     os.system('clear')
-    banner()
     info()
 
     # Display message about the paid tool and print the generated ID
