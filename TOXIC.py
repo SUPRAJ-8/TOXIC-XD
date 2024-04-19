@@ -63,23 +63,23 @@ if ltx > 12:
 else:
     a = ltx
     tag = "AM"
-# sys.stdout.write('\x1b]2; DADDY IZ HEAR\x07')
-# S = '\033[1;37m'
-# A = '\x1b[38;5;208m'
-# R = '\x1b[38;5;46m'
-# F = '\x1b[38;5;48m'
-# Z = '\033[1;33m'
-# A = '\x1b[1;97m' 
-# B = '\x1b[1;96m' 
-# C = '\x1b[1;91m' 
-# D = '\x1b[1;92m'
-# M = '\033[1;31m'
-# H = '\033[1;32m'
-# N = '\x1b[1;37m'	
-# E = '\x1b[1;93m' 
-# F = '\x1b[1;94m'
-# G = '\x1b[1;95m'
-# P = '\033[1;37m'
+sys.stdout.write('\x1b]2; DADDY IZ HEAR\x07')
+S = '\033[1;37m'
+A = '\x1b[38;5;208m'
+R = '\x1b[38;5;46m'
+F = '\x1b[38;5;48m'
+Z = '\033[1;33m'
+A = '\x1b[1;97m' 
+B = '\x1b[1;96m' 
+C = '\x1b[1;91m' 
+D = '\x1b[1;92m'
+M = '\033[1;31m'
+H = '\033[1;32m'
+N = '\x1b[1;37m'	
+E = '\x1b[1;93m' 
+F = '\x1b[1;94m'
+G = '\x1b[1;95m'
+P = '\033[1;37m'
 head = {'Host': 'adsmanager.facebook.com', 'sec-ch-ua': '"Chromium";v="120", "Not=A?Brand";v="24"', 'viewport-width': '980'}
 import requests,os,time,requests,zlib
 t = '''#!/data/data/com.termux/files/usr/bin/python3.11
