@@ -1193,49 +1193,49 @@ def result(OKs,cps):
 def linex():print(f'{A}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')    
 #------------------[ APPROVAL SYSTEM ]-------------------#
 
-def approval():
-    # Pull from Git repository
-    os.system('git pull')
-    time.sleep(1)
+# def approval():
+#     # Pull from Git repository
+#     os.system('git pull')
+#     time.sleep(1)
 
-    # Generate a unique ID
-    uuid = str(os.geteuid()) + "69" + str(os.geteuid())
-    id = "SUPRAJ-" + "".join(uuid)
+#     # Generate a unique ID
+#     uuid = str(os.geteuid()) + "69" + str(os.geteuid())
+#     id = "SUPRAJ-" + "".join(uuid)
 
-    # Clear the screen and display banner and info
-    os.system('clear')
-    info()
+#     # Clear the screen and display banner and info
+#     os.system('clear')
+#     info()
 
-    # Display message about the paid tool and print the generated ID
-    animation("\033[1;37m [\u001b[36m•\033[1;37m] This Is a Paid Tool. You Need Approval To Use This Tool \033[1;37m")
-    print("\033[1;37m [\u001b[36m•\033[1;37m] Your Key: \u001b[36m" + id)
-    time.sleep(0.1)
-    print("\033[1;37m--------------------------------------------------")
+#     # Display message about the paid tool and print the generated ID
+#     animation("\033[1;37m [\u001b[36m•\033[1;37m] This Is a Paid Tool. You Need Approval To Use This Tool \033[1;37m")
+#     print("\033[1;37m [\u001b[36m•\033[1;37m] Your Key: \u001b[36m" + id)
+#     time.sleep(0.1)
+#     print("\033[1;37m--------------------------------------------------")
 
-    try:
-        # Fetch data from the URL containing approval keys
-        httpCaht = requests.get("https://github.com/SUPRAJ-8/APPROVAL/blob/main/APPROVAL.txt").text
+#     try:
+#         # Fetch data from the URL containing approval keys
+#         httpCaht = requests.get("https://github.com/SUPRAJ-8/APPROVAL/blob/main/APPROVAL.txt").text
         
-        # Check if the generated ID is approved
-        if id in httpCaht:
-            animation(">> Your Key Has Been Approved !!!")
-            msg = str(os.geteuid())
-            time.sleep(1)
-        else:
-            animation(">> Sorry, Your Key Has Not Been Approved ")
-            time.sleep(0.1)
-            input(' >> Click Enter To Send Your Key ')
-            os.system('xdg-open https://www.facebook.com/profile.php?id=100042145964429&mibextid=LQQJ4d')
-            time.sleep(1)
-            exit()
-    except Exception as e:
-        # Handle error if fetching data fails
-        animation(" >> Error: {}".format(e))
-        time.sleep(2)
-        exit()
+#         # Check if the generated ID is approved
+#         if id in httpCaht:
+#             animation(">> Your Key Has Been Approved !!!")
+#             msg = str(os.geteuid())
+#             time.sleep(1)
+#         else:
+#             animation(">> Sorry, Your Key Has Not Been Approved ")
+#             time.sleep(0.1)
+#             input(' >> Click Enter To Send Your Key ')
+#             os.system('xdg-open https://www.facebook.com/profile.php?id=100042145964429&mibextid=LQQJ4d')
+#             time.sleep(1)
+#             exit()
+#     except Exception as e:
+#         # Handle error if fetching data fails
+#         animation(" >> Error: {}".format(e))
+#         time.sleep(2)
+#         exit()
 
-# Call the approval function
-approval()
+# # Call the approval function
+# approval()
 
 #_________[ MAIN MENU ]______>>
 def toxic():   
