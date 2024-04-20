@@ -1156,12 +1156,112 @@ for agent in range(10000):
 #--------------------
 def animation(u):
 	for e in u + "\n":sys.stdout.write(e);sys.stdout.flush();time.sleep(0.01)
-#_________[ TRACKING USERS IP ]______>>
-ip = requests.get("https://api.ipify.org").text
-print('\033[0;97m[•] \033[0;92mTRACKING YOUR IP ADDRESS')
-time.sleep(2)
-print("\033[0;97m[•] \x1b[1;92mTHIS IS YOUR IP ADDRESS \x1b[1;91m:\033[1;36m "+ip)
-logo =                                          """            
+# #_________[ TRACKING USERS IP ]______>>
+# ip = requests.get("https://api.ipify.org").text
+# print('\033[0;97m[•] \033[0;92mTRACKING YOUR IP ADDRESS')
+# time.sleep(2)
+# print("\033[0;97m[•] \x1b[1;92mTHIS IS YOUR IP ADDRESS \x1b[1;91m:\033[1;36m "+ip)
+# logo =                                          """            
+
+# /$$$$$$$$ /$$$$$$  /$$   /$$ /$$$$$$  /$$$$$$ 
+# |__  $$__//$$__  $$| $$  / $$|_  $$_/ /$$__  $$
+#    | $$  | $$  \ $$|  $$/ $$/  | $$  | $$  \__/
+#    | $$  | $$  | $$ \  $$$$/   | $$  | $$      
+#    | $$  | $$  | $$  >$$  $$   | $$  | $$      
+#    | $$  | $$  | $$ /$$/\  $$  | $$  | $$    $$
+#    | $$  |  $$$$$$/| $$  \ $$ /$$$$$$|  $$$$$$/
+#    |__/   \______/ |__/  |__/|______/ \______/
+
+# """
+# def clear():
+#     os.system("clear")    
+#     print(logo)    
+# os.system('espeak -a 400 " WELCOME SIR TO toxic CLONING TOOL"')
+# uname =input('\033[1;97m[\033[1;92m•\033[1;97m]\033[1;92m WHAT IS YOUR NAME \033[1;91m: \33[1;32m')
+# pass    
+# #_________[ USER IP SERVER ]______>>
+# def result(OKs,cps):
+#     if len(OKs) != 0 or len(cps) != 0:
+#         print('\n')
+#         print(47*'-')
+#         print('THE PROCESS IS COMPLETE..... ')
+#         print(' TOTAL OK: %s' % str(len(oks)))
+#         print(' TOTAL CP: %s' % str(len(cps)))
+#         print(47*'-')
+#         input("EXIT")
+#         exit()
+# def linex():print(f'{A}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')    
+# #------------------[ APPROVAL SYSTEM ]-------------------#
+# import os
+# import time
+# import requests
+
+# def approval():
+#     # Pull from Git repository
+#     os.system('git pull')
+#     time.sleep(1)
+
+#     # Generate a unique ID
+#     uuid = str(os.geteuid()) + "69" + str(os.geteuid())
+#     id = "SUPRAJ-" + "".join(uuid)
+
+#     # Clear the screen and display banner and info
+#     os.system('clear')
+#     banner()
+#     info()
+
+#     # Display message about the paid tool and print the generated ID
+#     animation("\033[1;37m [\u001b[36m•\033[1;37m] This Is a Paid Tool. You Need Approval To Use This Tool \033[1;37m")
+#     print("\033[1;37m [\u001b[36m•\033[1;37m] Your Key: \u001b[36m" + id)
+#     time.sleep(0.1)
+#     print("\033[1;37m--------------------------------------------------")
+
+#     try:
+#         # Fetch data from the URL containing approval keys
+#         httpCaht = requests.get("https://github.com/SUPRAJ-8/APPROVALXTOXIC/blob/main/APPROVAL.txt").text
+        
+#         # Check if the generated ID is approved
+#         if id in httpCaht:
+#             animation(">> Your Key Has Been Approved !!!")
+#             msg = str(os.geteuid())
+#             time.sleep(1)
+#         else:
+#             animation(">> Sorry, Your Key Has Not Been Approved ")
+#             time.sleep(0.1)
+#             input(' >> Click Enter To Send Your Key ')
+#             os.system('xdg-open https://www.facebook.com/profile.php?id=100042145964429&mibextid=LQQJ4d')
+#             time.sleep(1)
+#             exit()
+#     except Exception as e:
+#         # Handle error if fetching data fails
+#         animation(" >> Error: {}".format(e))
+#         time.sleep(2)
+#         exit()
+
+# # Define banner function
+# def banner():
+#     # Your banner code here
+#     pass
+
+# # Define info function
+# def info():
+#     # Your info code here
+#     pass
+
+# # Define animation function
+# def animation(msg):
+#     # Your animation code here
+#     print(msg)
+
+# # Call the approval function
+# approval()
+
+import os
+import time
+import requests
+
+# Define your logo
+logo = """            
 
 /$$$$$$$$ /$$$$$$  /$$   /$$ /$$$$$$  /$$$$$$ 
 |__  $$__//$$__  $$| $$  / $$|_  $$_/ /$$__  $$
@@ -1173,30 +1273,28 @@ logo =                                          """
    |__/   \______/ |__/  |__/|______/ \______/
 
 """
+
+# Function to clear screen and print logo
 def clear():
     os.system("clear")    
-    print(logo)    
+    print(logo)
+
+# Display logo and welcome message
+clear()
 os.system('espeak -a 400 " WELCOME SIR TO toxic CLONING TOOL"')
-uname =input('\033[1;97m[\033[1;92m•\033[1;97m]\033[1;92m WHAT IS YOUR NAME \033[1;91m: \33[1;32m')
-pass    
-#_________[ USER IP SERVER ]______>>
-def result(OKs,cps):
-    if len(OKs) != 0 or len(cps) != 0:
-        print('\n')
-        print(47*'-')
-        print('THE PROCESS IS COMPLETE..... ')
-        print(' TOTAL OK: %s' % str(len(oks)))
-        print(' TOTAL CP: %s' % str(len(cps)))
-        print(47*'-')
-        input("EXIT")
-        exit()
-def linex():print(f'{A}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')    
+
+# Get user name
+uname = input('\033[1;97m[\033[1;92m•\033[1;97m]\033[1;92m WHAT IS YOUR NAME \033[1;91m: \33[1;32m')
+
+# IP tracking
+ip = requests.get("https://api.ipify.org").text
+print('\033[0;97m[•] \033[0;92mTRACKING YOUR IP ADDRESS')
+time.sleep(2)
+print("\033[0;97m[•] \x1b[1;92mTHIS IS YOUR IP ADDRESS \x1b[1;91m:\033[1;36m "+ip)
+
 #------------------[ APPROVAL SYSTEM ]-------------------#
 
-import os
-import time
-import requests
-
+# Approval function
 def approval():
     # Pull from Git repository
     os.system('git pull')
@@ -1207,8 +1305,7 @@ def approval():
     id = "SUPRAJ-" + "".join(uuid)
 
     # Clear the screen and display banner and info
-    os.system('clear')
-    banner()
+    clear()
     info()
 
     # Display message about the paid tool and print the generated ID
@@ -1238,11 +1335,6 @@ def approval():
         animation(" >> Error: {}".format(e))
         time.sleep(2)
         exit()
-
-# Define banner function
-def banner():
-    # Your banner code here
-    pass
 
 # Define info function
 def info():
