@@ -1349,6 +1349,28 @@ def animation(msg):
 # Call the approval function
 approval()
 
+# -----------[ BANNER ]--------------
+
+###----------[ BANNER ]---------- ###    
+def animation(u):
+	for e in u + "\n":sys.stdout.write(e);sys.stdout.flush();time.sleep(0.01)
+def clear():
+	os.system('clear')
+def back():
+	login()
+def linex():
+	print('\033[1;37m--------------------------------------------------')
+def cls():
+	os.system('clear')
+	banner()
+	info()
+def info():
+	print(f"""\033[1;37m--------------------------------------------------
+ Author    : TOXIC-XD
+ Github    : TOXIC-XD
+ Facebook  : SUJAN SHRESTHA
+ CREATOR   : SUPRAJ SHRESTHA
+\033[1;37m--------------------------------------------------""")
 
 #_________[ MAIN MENU ]______>>
 def toxic():   
