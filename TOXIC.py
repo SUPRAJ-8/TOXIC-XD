@@ -1156,6 +1156,7 @@ for agent in range(10000):
 #--------------------
 def animation(u):
 	for e in u + "\n":sys.stdout.write(e);sys.stdout.flush();time.sleep(0.01)
+
 # #_________[ TRACKING USERS IP ]______>>
 # ip = requests.get("https://api.ipify.org").text
 # print('\033[0;97m[•] \033[0;92mTRACKING YOUR IP ADDRESS')
@@ -1163,14 +1164,7 @@ def animation(u):
 # print("\033[0;97m[•] \x1b[1;92mTHIS IS YOUR IP ADDRESS \x1b[1;91m:\033[1;36m "+ip)
 # logo =                                          """            
 
-# /$$$$$$$$ /$$$$$$  /$$   /$$ /$$$$$$  /$$$$$$ 
-# |__  $$__//$$__  $$| $$  / $$|_  $$_/ /$$__  $$
-#    | $$  | $$  \ $$|  $$/ $$/  | $$  | $$  \__/
-#    | $$  | $$  | $$ \  $$$$/   | $$  | $$      
-#    | $$  | $$  | $$  >$$  $$   | $$  | $$      
-#    | $$  | $$  | $$ /$$/\  $$  | $$  | $$    $$
-#    | $$  |  $$$$$$/| $$  \ $$ /$$$$$$|  $$$$$$/
-#    |__/   \______/ |__/  |__/|______/ \______/
+# ADD YOUR OWN LOGO 
 
 # """
 # def clear():
@@ -1192,76 +1186,13 @@ def animation(u):
 #         exit()
 # def linex():print(f'{A}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')    
 # #------------------[ APPROVAL SYSTEM ]-------------------#
-# import os
-# import time
-# import requests
+# '''
+# Add your owne approval 
+# '''
 
-# def approval():
-#     # Pull from Git repository
-#     os.system('git pull')
-#     time.sleep(1)
+# -------------[LOGO STUFF]--------------
 
-#     # Generate a unique ID
-#     uuid = str(os.geteuid()) + "69" + str(os.geteuid())
-#     id = "SUPRAJ-" + "".join(uuid)
-
-#     # Clear the screen and display banner and info
-#     os.system('clear')
-#     banner()
-#     info()
-
-#     # Display message about the paid tool and print the generated ID
-#     animation("\033[1;37m [\u001b[36m•\033[1;37m] This Is a Paid Tool. You Need Approval To Use This Tool \033[1;37m")
-#     print("\033[1;37m [\u001b[36m•\033[1;37m] Your Key: \u001b[36m" + id)
-#     time.sleep(0.1)
-#     print("\033[1;37m--------------------------------------------------")
-
-#     try:
-#         # Fetch data from the URL containing approval keys
-#         httpCaht = requests.get("https://github.com/SUPRAJ-8/APPROVALXTOXIC/blob/main/APPROVAL.txt").text
-        
-#         # Check if the generated ID is approved
-#         if id in httpCaht:
-#             animation(">> Your Key Has Been Approved !!!")
-#             msg = str(os.geteuid())
-#             time.sleep(1)
-#         else:
-#             animation(">> Sorry, Your Key Has Not Been Approved ")
-#             time.sleep(0.1)
-#             input(' >> Click Enter To Send Your Key ')
-#             os.system('xdg-open https://www.facebook.com/profile.php?id=100042145964429&mibextid=LQQJ4d')
-#             time.sleep(1)
-#             exit()
-#     except Exception as e:
-#         # Handle error if fetching data fails
-#         animation(" >> Error: {}".format(e))
-#         time.sleep(2)
-#         exit()
-
-# # Define banner function
-# def banner():
-#     # Your banner code here
-#     pass
-
-# # Define info function
-# def info():
-#     # Your info code here
-#     pass
-
-# # Define animation function
-# def animation(msg):
-#     # Your animation code here
-#     print(msg)
-
-# # Call the approval function
-# approval()
-
-import os
-import time
-import requests
-
-# Define your logo
-logo = """            
+logo = """\033[1;94m            
 
 /$$$$$$$$ /$$$$$$  /$$   /$$ /$$$$$$  /$$$$$$ 
 |__  $$__//$$__  $$| $$  / $$|_  $$_/ /$$__  $$
@@ -1274,23 +1205,6 @@ logo = """
 
 """
 
-# Function to clear screen and print logo
-def clear():
-    os.system("clear")    
-    print(logo)
-
-# Display logo and welcome message
-clear()
-os.system('espeak -a 400 " WELCOME SIR TO toxic CLONING TOOL"')
-
-# Get user name
-uname = input('\033[1;97m[\033[1;92m•\033[1;97m]\033[1;92m WHAT IS YOUR NAME \033[1;91m: \33[1;32m')
-
-# IP tracking
-ip = requests.get("https://api.ipify.org").text
-print('\033[0;97m[•] \033[0;92mTRACKING YOUR IP ADDRESS')
-time.sleep(2)
-print("\033[0;97m[•] \x1b[1;92mTHIS IS YOUR IP ADDRESS \x1b[1;91m:\033[1;36m "+ip)
 
 #------------------[ APPROVAL SYSTEM ]-------------------#
 
@@ -1349,28 +1263,24 @@ def animation(msg):
 # Call the approval function
 approval()
 
-# -----------[ BANNER ]--------------
+#_________[ TRACKING USERS IP ]______>>
+import os
+import time
+import requests
 
-###----------[ BANNER ]---------- ###    
-def animation(u):
-	for e in u + "\n":sys.stdout.write(e);sys.stdout.flush();time.sleep(0.01)
 def clear():
-	os.system('clear')
-def back():
-	login()
-def linex():
-	print('\033[1;37m--------------------------------------------------')
-def cls():
-	os.system('clear')
-	banner()
-	info()
-def info():
-	print(f"""\033[1;37m--------------------------------------------------
- Author    : TOXIC-XD
- Github    : TOXIC-XD
- Facebook  : SUJAN SHRESTHA
- CREATOR   : SUPRAJ SHRESTHA
-\033[1;37m--------------------------------------------------""")
+    os.system("clear")    
+    print(logo)
+
+clear()
+os.system('espeak -a 400 " WELCOME SIR TO toxic CLONING TOOL"')
+
+uname = input('\033[1;97m[\033[1;92m•\033[1;97m]\033[1;92m WHAT IS YOUR NAME \033[1;91m: \33[1;32m')
+
+ip = requests.get("https://api.ipify.org").text
+print('\033[0;97m[•] \033[0;92mTRACKING YOUR IP ADDRESS')
+time.sleep(2)
+print("\033[0;97m[•] \x1b[1;92mTHIS IS YOUR IP ADDRESS \x1b[1;91m:\033[1;36m "+ip)
 
 #_________[ MAIN MENU ]______>>
 def toxic():   
@@ -1396,7 +1306,7 @@ def toxic():
     elif select =='3':
         os.system('xdg-open https://www.facebook.com/Prince.1.9.9.Prince') 
     elif select =='0':
-        exit('fuck up ')
+        exit(' Chal Nikal ')
     else:
         print('\n Select valid option ... ')
         time.sleep(2)
