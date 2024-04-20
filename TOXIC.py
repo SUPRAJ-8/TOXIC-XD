@@ -1173,18 +1173,18 @@ def animation(u):
 # os.system('espeak -a 400 " WELCOME SIR TO toxic CLONING TOOL"')
 # uname =input('\033[1;97m[\033[1;92m•\033[1;97m]\033[1;92m WHAT IS YOUR NAME \033[1;91m: \33[1;32m')
 # pass    
-# #_________[ USER IP SERVER ]______>>
-# def result(OKs,cps):
-#     if len(OKs) != 0 or len(cps) != 0:
-#         print('\n')
-#         print(47*'-')
-#         print('THE PROCESS IS COMPLETE..... ')
-#         print(' TOTAL OK: %s' % str(len(oks)))
-#         print(' TOTAL CP: %s' % str(len(cps)))
-#         print(47*'-')
-#         input("EXIT")
-#         exit()
-# def linex():print(f'{A}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')    
+#_________[ USER IP SERVER ]______>>
+def result(OKs,cps):
+    if len(OKs) != 0 or len(cps) != 0:
+        print('\n')
+        print(47*'-')
+        print('THE PROCESS IS COMPLETE..... ')
+        print(' TOTAL OK: %s' % str(len(oks)))
+        print(' TOTAL CP: %s' % str(len(cps)))
+        print(47*'-')
+        input("EXIT")
+        exit()
+def linex():print(f'{A}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')    
 # #------------------[ APPROVAL SYSTEM ]-------------------#
 # '''
 # Add your owne approval 
