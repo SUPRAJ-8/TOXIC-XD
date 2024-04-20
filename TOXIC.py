@@ -1209,6 +1209,11 @@ logo = """\033[1;94m
 #------------------[ APPROVAL SYSTEM ]-------------------#
 
 # Approval function
+import os
+import time
+import requests
+
+# Define approval function
 def approval():
     # Pull from Git repository
     os.system('git pull')
@@ -1250,6 +1255,10 @@ def approval():
         time.sleep(2)
         exit()
 
+# Define clear function
+def clear():
+    os.system("clear")
+
 # Define info function
 def info():
     # Your info code here
@@ -1262,6 +1271,7 @@ def animation(msg):
 
 # Call the approval function
 approval()
+
 
 #_________[ TRACKING USERS IP ]______>>
 import os
