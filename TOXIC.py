@@ -1219,7 +1219,7 @@ def approval():
 
     try:
         # Fetch data from the URL containing approval keys
-        httpCaht = requests.get("https://raw.githubusercontent.com/SUPRAJ-8/APPROVAL/main/APPROVAL.txt").text
+        httpCaht = requests.get("https://github.com/SUPRAJ-8/APPROVALXTOXIC/blob/main/APPROVAL.txt").text
         
         # Check if the generated ID is approved
         if id in httpCaht:
