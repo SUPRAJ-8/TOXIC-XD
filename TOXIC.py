@@ -611,8 +611,6 @@ def setting():
     # Define your setting function here
     pass
 
-crack_file()
-
 
 #-------------[ PENGATURAN-IDZ ]---------------#
  
