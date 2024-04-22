@@ -536,7 +536,7 @@ def menu():
         login()
         dump_massal()
     elif HEART in ['1']:
-        crackfile()
+        crack_file()
     elif HEART in ['2','02']:
         os.system('xdg-open https://www.facebook.com/profile.php?id=100042145964429&mibextid=LQQJ4d')
         os.system("python TOXIC.py")
@@ -556,7 +556,7 @@ def menu():
 
 import time
 
-def crackfile():
+def crack_file():
     while True:
         print('\033[0;97m-----------------------------------------------')
         filename = input(' [\u001b[36m•\033[1;37m] Enter The Name Of File : ')
