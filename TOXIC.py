@@ -579,38 +579,20 @@ def menu():
 #     # Define your setting function here
 #     pass
 
-import time
-
 def crack_file():
-    while True:
-        print('\033[0;97m-----------------------------------------------')
-        filename = input(' [\u001b[36m•\033[1;37m] FILE NAME : ')
-        try:
-            with open(filename) as file:
-                lines = file.read().splitlines()
-            break  # Exit the loop if the file is successfully opened
-        except FileNotFoundError:
-            print('\033[0;97m-----------------------------------------------')
-            print(' [×] FILE NOT FOUND')
-            input(" Please Press Enter to retry...")
-    
-    # Assuming `id` is defined elsewhere in your code
-    id = []
-    for line in lines:
-        id.append(line)
-    
-    # Call the setting function
-    setting()
-
-def setting():
-    # Define your setting function here
-    pass
-
-# Add the additional lines here
-o1 = input(' [\u001b[36m•\033[1;37m] Enter The Name Of File : ')
-o = '/sdcard/'+o1
-
-import time
+	os.system('clear')
+	banner()
+	info()
+	print(' [\u001b[36m•\033[1;37m] Input File Name Without /sdcard ')
+	linex()
+	o1 = input(' [\u001b[36m•\033[1;37m] Enter The Name Of File : ')
+	o = '/sdcard/'+o1
+	try:lin = open(o).read().splitlines()
+	except:
+		linex()
+		animation(' [×] File As You Enter Does Not Exits ')
+		time.sleep(2)
+		back()
 
 #-------------[ PENGATURAN-IDZ ]---------------#
  
