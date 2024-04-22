@@ -536,7 +536,7 @@ def menu():
         login()
         dump_massal()
     elif HEART in ['1']:
-        crack_file()
+        crackfile()
     elif HEART in ['2','02']:
         os.system('xdg-open https://www.facebook.com/profile.php?id=100042145964429&mibextid=LQQJ4d')
         os.system("python TOXIC.py")
