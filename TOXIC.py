@@ -632,15 +632,6 @@ def setting():
  
 #-------------------[ BAGIAN-WORDLIST ]------------#
  
-import os
-import time
-import sys
-import random
-import requests
-from bs4 import BeautifulSoup
-import re
-from concurrent.futures import ThreadPoolExecutor as tred
-
 # Define the crackfree function
 def crackfree(idf, pwv):
     # Implement your crackfree logic here
