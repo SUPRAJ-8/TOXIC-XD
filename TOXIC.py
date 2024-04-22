@@ -454,11 +454,18 @@ logo ="""
  ┃ [+] AUTHOR    \033[1;91m: \033[1;92mSUPRAJ                            ┃
  ┃ [+] TOOL      \033[1;91m: \033[1;92mFILE CLONE                        ┃
  ┃ [+] STATUS    \033[1;91m: \033[1;92mPAID                              ┃
- ┃ [+] SYSTEM    \033[1;91m: \033[1;92mDATA[BEST] & WIFI\u001b[36m V7\033[1;37m              ┃
+ ┃ [+] SYSTEM    \033[1;91m: \033[1;92mDATA[BEST] & WIFI\u001b[36mcV7\033[1;37m            ┃
  ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 -----------------------------------------------"""   
 #------------------[ APPROVAL SYSTEM ]-------------------#
+logo ="""
+ \033[1;91m_____ _____  _____ ____ 
+ \033[1;92m|_   _/ _ \ \/ |_ _/ ___|
+ \033[1;93m  | || | | \  / | | |    
+ \033[1;94m  | || |_| /  \ | | |___ 
+ \033[1;95m  |_| \___/_/\_|___\____|VERSION:\u001b[36m V7\033[1;37m
 
+ """
 # Approval function
 def approval():
     # Pull from Git repository
@@ -553,14 +560,36 @@ def menu():
  
  
 #-------------[ CRACK-FROM-FILE ]------------------#
+ 
+# import time  # Import the time module
+
+# # Define the animation function if not defined
+# def animation(message):
+#     print(message)
+
+# # Define the crack_file function
+# def crack_file():
+#     print('\033[0;97m-----------------------------------------------')
+#     o = input(' [\u001b[36m•\033[1;37m] FILE NAME : ')
+#     try:
+#         lin = open(o).read().splitlines()
+#     except FileNotFoundError:
+#         print('\033[0;97m-----------------------------------------------')
+#         animation(' [×] FILE NOT FOUND')
+#         time.sleep(2)
+#         # Handle the logic for going back or exiting the program
+#         return
+#     for xid in lin:
+#         id.append(xid)  # Assuming id is defined somewhere else in your code
+#     # Call the setting function
+#     setting()
 
 import time
 
 def crack_file():
     while True:
         print('\033[0;97m-----------------------------------------------')
-        filename = input(' [\u001b[36m•\033[1;37m] Enter The Name Of File : ')
-        o = '/sdcard/'+filename  # Form the complete file path
+        filename = input(' [\u001b[36m•\033[1;37m] FILE NAME : ')
         try:
             with open(filename) as file:
                 lines = file.read().splitlines()
@@ -581,6 +610,7 @@ def setting():
     # Define your setting function here
     pass
 
+ 
 #-------------[ PENGATURAN-IDZ ]---------------#
  
 def setting():
@@ -723,7 +753,9 @@ def passwrd():
     print('\033[0;91m-----------------------------------------------')
     print('\033[97;1m[\033[92;1m+\033[97;1m] CLONING COMPLETE TIME :\033[1;92m'+time.strftime("%H:%M")+" "+ tag)
     print('\033[97;1m[\033[92;1m•\033[95;1m] OK :\033[0;92m %s '%(ok))
+    os.system('espeak -a 400 " YOU GOT A OK IDZ"')
     print('\033[97;1m[\033[92;1m+\033[96;1m] CP :\033[0;93m %s '%(cp))
+    os.system('espeak -a 400 " YOU GOT A CP IDS "')
     print('\033[0;91m-----------------------------------------------')
     woi = input('\033[97;1m[\033[92;1m+\033[95;1m] \033[1;37m ENTER TO BACK')
     os.system("python TOXIC.py")
@@ -732,7 +764,6 @@ def passwrd():
 # You might need to define other functions like crackfree, or ensure they are imported.
 
 #--------------------[ METODE-B-API ]-----------------#
- 
  
 # def crackfree(idf,pwv):
 #     global loop,ok,cp
@@ -1225,7 +1256,7 @@ except requests.exceptions.ConnectionError:
 #     loop += 1
 
 #------------------[ METHODE-MBASIC-2 ]-------------------#
-
+ 
 def crackfree(idf,pwv):
     global loop,ok,cp
     sys.stdout.write(f"\r {P}[SUPRAJ-XD]{P} {P}{loop}{P}/{P}{len(id)}{P} OK{P}[{H}{ok}{P}] [{P}{'{:.0%}'.format(loop/float(len(id)))}{P}]  "),
@@ -1291,7 +1322,6 @@ def cek_apk(session,coki):
             print(f"\r %s%s. %s%s"%(N,i+1,game[i].replace("Kedaluwarsa"," Kedaluwarsa"),N))
         else:
             print(f'\r')
-
 #-----------------------[ SYSTEM-CONTROL ]--------------------#
  
 if __name__=='__main__':
