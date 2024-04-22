@@ -454,7 +454,7 @@ logo ="""
  ┃ [+] AUTHOR    \033[1;91m: \033[1;92mSUPRAJ                            ┃
  ┃ [+] TOOL      \033[1;91m: \033[1;92mFILE CLONE                        ┃
  ┃ [+] STATUS    \033[1;91m: \033[1;92mPAID                              ┃
- ┃ [+] SYSTEM    \033[1;91m: \033[1;92mDATA[BEST] & WIFI\u001b[36m  V7\033[1;37m            ┃
+ ┃ [+] SYSTEM    \033[1;91m: \033[1;92mDATA[BEST] & WIFI\u001b[36m  V7\033[1;37m             ┃
  ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 -----------------------------------------------"""   
 #------------------[ APPROVAL SYSTEM ]-------------------#
@@ -698,12 +698,20 @@ def login_lagi334():
 #         time.sleep(3)
 #         back()
 
+import os
+import sys
+import time
+
 class jalan:
     def __init__(self, z):
         for e in z + "\n":
             sys.stdout.write(e)
             sys.stdout.flush()
             time.sleep(0.040)
+
+def public_cracking():
+    # Your implementation for public_cracking goes here
+    pass
 
 def menu():
     os.system('clear')
@@ -736,6 +744,9 @@ def menu():
         print('\033[0;97m-----------------------------------------------')
         animation(' [×] SELECT CORRECTLY ')
         back()
+
+# Call the menu function to start the program
+menu()
 
 
 #-------------[ CRACK-FROM-FILE ]------------------#
