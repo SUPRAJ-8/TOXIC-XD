@@ -610,6 +610,8 @@ def setting():
 o1 = input(' [\u001b[36m•\033[1;37m] Enter The Name Of File : ')
 o = '/sdcard/'+o1
 
+import time
+
 #-------------[ PENGATURAN-IDZ ]---------------#
  
 def setting():
