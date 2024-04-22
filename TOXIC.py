@@ -579,20 +579,7 @@ def menu():
 #     # Define your setting function here
 #     pass
 
-import os
 import time
-
-def banner():
-    print("This is a banner")
-
-def linex():
-    print("-----------------------------------------------")
-
-def animation(message):
-    for char in message:
-        print(char, end='', flush=True)
-        time.sleep(0.05)
-    print()
 
 def back():
     pass  # Placeholder for the back function
