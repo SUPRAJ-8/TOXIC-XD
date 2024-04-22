@@ -582,6 +582,9 @@ def menu():
 import os
 import time
 
+def banner():
+    print("This is a banner")
+
 def crack_file():
     while True:
         print('\033[0;97m-----------------------------------------------')
