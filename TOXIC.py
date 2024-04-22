@@ -579,20 +579,44 @@ def menu():
 #     # Define your setting function here
 #     pass
 
+import os
+import time
+
+def banner():
+    print("This is a banner")
+
+def linex():
+    print("-----------------------------------------------")
+
+def animation(message):
+    for char in message:
+        print(char, end='', flush=True)
+        time.sleep(0.05)
+    print()
+
+def back():
+    pass  # Placeholder for the back function
+
+def info():
+    pass  # Placeholder for the info function
+
 def crack_file():
-	os.system('clear')
-	banner()
-	info()
-	print(' [\u001b[36m•\033[1;37m] Input File Name Without /sdcard ')
-	linex()
-	o1 = input(' [\u001b[36m•\033[1;37m] Enter The Name Of File : ')
-	o = '/sdcard/'+o1
-	try:lin = open(o).read().splitlines()
-	except:
-		linex()
-		animation(' [×] File As You Enter Does Not Exits ')
-		time.sleep(2)
-		back()
+    os.system('clear')
+    banner()
+    info()
+    print(' [\u001b[36m•\033[1;37m] Input File Name Without /sdcard ')
+    linex()
+    o1 = input(' [\u001b[36m•\033[1;37m] Enter The Name Of File : ')
+    o = '/sdcard/'+o1
+    try:
+        lin = open(o).read().splitlines()
+    except:
+        linex()
+        animation(' [×] File As You Enter Does Not Exits ')
+        time.sleep(2)
+        back()
+
+crack_file()
 
 #-------------[ PENGATURAN-IDZ ]---------------#
  
