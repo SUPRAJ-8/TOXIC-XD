@@ -454,18 +454,11 @@ logo ="""
  ┃ [+] AUTHOR    \033[1;91m: \033[1;92mSUPRAJ                            ┃
  ┃ [+] TOOL      \033[1;91m: \033[1;92mFILE CLONE                        ┃
  ┃ [+] STATUS    \033[1;91m: \033[1;92mPAID                              ┃
- ┃ [+] SYSTEM    \033[1;91m: \033[1;92mDATA[BEST] & WIFI\u001b[36mcV7\033[1;37m            ┃
+ ┃ [+] SYSTEM    \033[1;91m: \033[1;92mDATA[BEST] & WIFI\u001b[36m V7\033[1;37m              ┃
  ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 -----------------------------------------------"""   
 #------------------[ APPROVAL SYSTEM ]-------------------#
-logo ="""
- \033[1;91m_____ _____  _____ ____ 
- \033[1;92m|_   _/ _ \ \/ |_ _/ ___|
- \033[1;93m  | || | | \  / | | |    
- \033[1;94m  | || |_| /  \ | | |___ 
- \033[1;95m  |_| \___/_/\_|___\____|VERSION:\u001b[36m V7\033[1;37m
 
- """
 # Approval function
 def approval():
     # Pull from Git repository
@@ -560,31 +553,33 @@ def menu():
  
  
 #-------------[ CRACK-FROM-FILE ]------------------#
- 
-# import time  # Import the time module
+# import time
 
-# # Define the animation function if not defined
-# def animation(message):
-#     print(message)
-
-# # Define the crack_file function
 # def crack_file():
-#     print('\033[0;97m-----------------------------------------------')
-#     o = input(' [\u001b[36m•\033[1;37m] FILE NAME : ')
-#     try:
-#         lin = open(o).read().splitlines()
-#     except FileNotFoundError:
+#     while True:
 #         print('\033[0;97m-----------------------------------------------')
-#         animation(' [×] FILE NOT FOUND')
-#         time.sleep(2)
-#         # Handle the logic for going back or exiting the program
-#         return
-#     for xid in lin:
-#         id.append(xid)  # Assuming id is defined somewhere else in your code
+#         filename = input(' [\u001b[36m•\033[1;37m] FILE NAME : ')
+#         try:
+#             with open(filename) as file:
+#                 lines = file.read().splitlines()
+#             break  # Exit the loop if the file is successfully opened
+#         except FileNotFoundError:
+#             print('\033[0;97m-----------------------------------------------')
+#             print(' [×] FILE NOT FOUND')
+#             input(" Please Press Enter to retry...")
+    
+#     # Assuming `id` is defined elsewhere in your code
+#     for line in lines:
+#         id.append(line)
+    
 #     # Call the setting function
 #     setting()
 
-import time
+# def setting():
+#     # Define your setting function here
+#     pass
+
+ import time
 
 def crack_file():
     while True:
@@ -600,6 +595,7 @@ def crack_file():
             input(" Please Press Enter to retry...")
     
     # Assuming `id` is defined elsewhere in your code
+    id = []
     for line in lines:
         id.append(line)
     
@@ -610,7 +606,10 @@ def setting():
     # Define your setting function here
     pass
 
- 
+# Add the additional lines here
+o1 = input(' [\u001b[36m•\033[1;37m] Enter The Name Of File : ')
+o = '/sdcard/'+o1
+
 #-------------[ PENGATURAN-IDZ ]---------------#
  
 def setting():
