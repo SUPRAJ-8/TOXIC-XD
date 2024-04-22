@@ -556,7 +556,7 @@ def menu():
 
 import time
 
-def crack_file():
+def crackfile():
     while True:
         print('\033[0;97m-----------------------------------------------')
         filename = input(' [\u001b[36m•\033[1;37m] Enter The Name Of File : ')
