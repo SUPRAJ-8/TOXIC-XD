@@ -579,7 +579,7 @@ def menu():
 #     # Define your setting function here
 #     pass
 
- import time
+import time
 
 def crack_file():
     while True:
