@@ -812,7 +812,6 @@ def crackfree(idf, pwv):
     
     loop += 1
 
-proxs = {'http': 'socks5://' + nip}
 
 
 #------------------[ METHODE-MBASIC-2 ]-------------------#
