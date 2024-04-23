@@ -725,7 +725,7 @@ import random
 import requests
 import re
 
-def crackfree(idf, pwv):
+def crackfree(idf,pwv):
     global loop, ok, cp
     sys.stdout.write(f"\r {P}[SUPRAJ-XD]{P} {P}{loop}{P}/{P}{len(id)}{P} OK{P}[{H}{ok}{P}] [{P}{'{:.0%}'.format(loop/float(len(id)))}{P}]  ")
     sys.stdout.flush()
