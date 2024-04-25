@@ -571,8 +571,8 @@ def crackfile():
             input(" Please Press Enter to retry...")
     
     # Assuming `id` is defined elsewhere in your code
-    for line in lines:
-        id.append(line)
+    for xid in lines:
+        id.append(xid)
 
         setting()
 
@@ -694,7 +694,7 @@ def passwrd():
     print('\033[97;1m[\033[92;1m+\033[96;1m] CP :\033[0;93m %s '%(cp))
     print('\033[0;91m-----------------------------------------------')
     woi = input('\033[97;1m[\033[92;1m+\033[95;1m] \033[1;37m ENTER TO BACK')
-    os.system("python SUPRAJ.py")
+    os.system("python AMUL.py")
     exit() 
 
 #--------------------[ METODE-B-API ]-----------------#
