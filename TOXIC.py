@@ -562,14 +562,16 @@ def crackfile():
         print(' [\u001b[36m•\033[1;37m] Input File Name Without /sdcard ')
         filename = input(' [\u001b[36m•\033[1;37m] Enter The Name Of File : ')
         o = '/sdcard/'+filename  # Form the complete file path
-        try:lines = open(o).read().splitlines()
+        try:
+            lines = open(o).read().splitlines()
+            # Exit the loop if file is successfully read
+            break
         except FileNotFoundError:
             print('\033[0;97m-----------------------------------------------')
             print(' [×] FILE NOT FOUND')
             input(" Please Press Enter to retry...")
 
-    setting()
-    
+crackfile()
 
 
 #-------------[ PENGATURAN-IDZ ]---------------#
