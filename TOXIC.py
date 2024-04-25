@@ -782,11 +782,7 @@ def crack(idf,pwv):
 
 
 #------------------[ METHODE-MBASIC-2 ]-------------------#
-import sys
-import random
-import time
-import requests
-from bs4 import BeautifulSoup
+
 
 def crackfree(idf, pwv):
     global loop, ok, cp
