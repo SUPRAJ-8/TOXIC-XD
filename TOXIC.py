@@ -560,8 +560,6 @@ def crackfile():
     # Clear the screen before starting
     os.system('clear')
     # Assuming these functions are defined elsewhere in your code
-    banner()
-    info()
     print(' [\u001b[36m•\033[1;37m] Input File Name Without /sdcard ')
     linex()
     o1 = input(' [\u001b[36m•\033[1;37m] Enter The Name Of File : ')
