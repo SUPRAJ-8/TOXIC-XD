@@ -567,8 +567,8 @@ def crackfile():
             print('\033[0;97m-----------------------------------------------')
             print(' [×] FILE NOT FOUND')
             input(" Please Press Enter to retry...")
-            
-    crackfile()
+
+    setting()
     
 
 
