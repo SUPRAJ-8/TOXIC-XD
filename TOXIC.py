@@ -556,8 +556,12 @@ def menu():
 
 import time
 
+def linex():
+    print("\n" * 100)  # Clear the console screen
+
 def crackfile():
     while True:
+        linex()
         print('\033[0;97m-----------------------------------------------')
         print(' [\u001b[36m•\033[1;37m] Input File Name Without /sdcard/ ')
         filename = input(' [\u001b[36m•\033[1;37m] Enter The Name Of File : ')
@@ -565,19 +569,27 @@ def crackfile():
         try:
             with open(o) as file:
                 lines = file.read().splitlines()
+                linex()  # Clear the console after successful file read
+                print("File Read Successfully!")
+                time.sleep(2)  # Give some time to view the message
+                break  # Exit the loop after successful file read
         except FileNotFoundError:
+            linex()
             print('\033[0;97m-----------------------------------------------')
             print(' [×] FILE NOT FOUND')
             input(" Please Press Enter to retry...")
             time.sleep(2)
 
-        # Assuming `id` is defined elsewhere in your code
-        for line in lines:
-            id.append(line)
+    # Continue with further processing after file read
+    # Assuming `id` is defined elsewhere in your code
+    for line in lines:
+        id.append(line)
+
+# Define the `id` list here if it's not defined elsewhere in your code
+id = []
 
 # Call the crackfile function
 crackfile()
-
 
 #-------------[ PENGATURAN-IDZ ]---------------#
  
