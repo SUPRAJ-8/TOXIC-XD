@@ -554,8 +554,6 @@ def menu():
  
 #-------------[ CRACK-FROM-FILE ]------------------#
 import time
-import random
-import os
 
 id = []
 id2 = []
@@ -631,6 +629,7 @@ def setting():
     print('\033[0;97m-----------------------------------------------')       
     bau = input(' [\u001b[36m•\033[1;37m] CHOOSE : ')
     passwrd()
+    exit()
 
 
 #-------------------[ BAGIAN-WORDLIST ]------------#
