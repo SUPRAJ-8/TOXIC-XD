@@ -573,8 +573,10 @@ def crackfile():
     for line in lines:
         id.append(line)
 
+        setting()
+
 # Call the crackfile function
-crackfile()
+
 
 
 
