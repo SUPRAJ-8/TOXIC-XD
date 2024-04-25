@@ -556,38 +556,45 @@ def menu():
 import os
 import time
 
-def crackfile():
-    # Clear the screen before starting
-    os.system('clear')
-    # Assuming these functions are defined elsewhere in your code
-    print(' [\u001b[36m•\033[1;37m] Input File Name Without /sdcard ')
-    linex()
-    o1 = input(' [\u001b[36m•\033[1;37m] Enter The Name Of File : ')
-    o = '/sdcard/' + o1
-    
-    try:
-        with open(o) as file:
-            # Read the lines from the file
-            lin = file.read().splitlines()
-        # Assuming you want to do something with the lines read from the file here
-        # For example, you can print them
-        print("File content:")
-        for line in lin:
-            print(line)
-            
-    except FileNotFoundError:
-        # Handle the case where the file does not exist
-        linex()
-        animation(' [×] File As You Enter Does Not Exist ')
-        time.sleep(2)
-        # Assuming you have a function to go back to the previous step
-        back()
+def banner():
+    print("**************************************")
+    print("*              My Script              *")
+    print("**************************************")
 
-# Define the `banner`, `info`, `linex`, `animation`, and `back` functions elsewhere in your code
+def info():
+    print("Welcome to My Script!")
+    print("This script performs some useful tasks.")
+
+def crackfile():
+    os.system('clear')
+    banner()
+    info()
+    print(' [\u001b[36m•\033[1;37m] Input File Name Without /sdcard ')
+    print(' [\u001b[36m•\033[1;37m] Example: example.txt')
+    
+    while True:
+        linex()
+        filename = input(' [\u001b[36m•\033[1;37m] Enter The Name Of File : ')
+        o = '/sdcard/' + filename
+        
+        try:
+            with open(o) as file:
+                lin = file.read().splitlines()
+            print("\nFile content:")
+            for line in lin:
+                print(line)
+            break  # Exit the loop if file is successfully read
+        except FileNotFoundError:
+            linex()
+            print(' [×] File Does Not Exist')
+            input(" Please Press Enter to retry...")
+
+# Define the linex function if it's not defined elsewhere in your code
+def linex():
+    print("\n" * 100)
 
 # Call the crackfile function
 crackfile()
-
 
 
 
