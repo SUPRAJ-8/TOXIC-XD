@@ -571,8 +571,7 @@ def crackfile():
             print(' [×] FILE NOT FOUND')
             input(" Please Press Enter to retry...")
 
-crackfile()
-
+setting()
 
 #-------------[ PENGATURAN-IDZ ]---------------#
  
