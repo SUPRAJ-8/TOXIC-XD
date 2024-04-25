@@ -559,27 +559,20 @@ import time
 def crackfile():
     while True:
         print('\033[0;97m-----------------------------------------------')
+        print(' [\u001b[36m•\033[1;37m] Input File Name Without /sdcard ')
         filename = input(' [\u001b[36m•\033[1;37m] Enter The Name Of File : ')
-        o = '/sdcard/'+filename  # Form the complete file path
+        o = '/sdcard/'+ filename# Form the complete file path
         try:
-            with open(filename) as file:
-                lines = file.read().splitlines()
-            break  # Exit the loop if the file is successfully opened
-        except FileNotFoundError:
-            print('\033[0;97m-----------------------------------------------')
-            print(' [×] FILE NOT FOUND')
-            input(" Please Press Enter to retry...")
+            try:lin = open(o).read().splitlines()
+            except FileNotFoundError:
+             print('\033[0;97m-----------------------------------------------')
+             print(' [×] FILE NOT FOUND')
+             input(" Please Press Enter to retry...")
     
     # Assuming `id` is defined elsewhere in your code
-    for line in lines:
-        id.append(line)
-    
     # Call the setting function
-    setting()
+setting()
 
-def setting():
-    # Define your setting function here
-    pass
 
 #-------------[ PENGATURAN-IDZ ]---------------#
  
