@@ -565,13 +565,7 @@ def crackfile():
         filename = input(' [\u001b[36m•\033[1;37m] Enter The Name Of File : ')
         o = '/sdcard/' + filename
         
-        try:
-            with open(o) as file:
-                lin = file.read().splitlines()
-            print("\nFile content:")
-            for line in lin:
-                print(line)
-            break  # Exit the loop if file is successfully read
+        try:lin = open(o).read().splitlines()
         except FileNotFoundError:
             print('\033[0;97m-----------------------------------------------')
             print(' [×] File Does Not Exist')
