@@ -555,6 +555,8 @@ def menu():
 #-------------[ CRACK-FROM-FILE ]------------------#
 
 import time
+for line in lines:
+        id.append(line)
 
 def crackfile():
     while True:
@@ -569,13 +571,8 @@ def crackfile():
             print('\033[0;97m-----------------------------------------------')
             print(' [×] FILE NOT FOUND')
             input(" Please Press Enter to retry...")
+            back()
     
-    # Assuming `id` is defined elsewhere in your code
-    for line in lines:
-        id.append(line)
-    
-    # Call the setting function
-    crackfile()
 
 
 #-------------[ PENGATURAN-IDZ ]---------------#
