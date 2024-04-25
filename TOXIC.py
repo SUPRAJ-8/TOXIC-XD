@@ -569,10 +569,10 @@ def crackfile():
         try:
             with open(o) as file:
                 lines = file.read().splitlines()
-                linex()  # Clear the console after successful file read
-                print("File Read Successfully!")
-                time.sleep(2)  # Give some time to view the message
-                break  # Exit the loop after successful file read
+            linex()  # Clear the console after successful file read
+            print("File Read Successfully!")
+            time.sleep(2)  # Give some time to view the message
+            break  # Exit the loop after successful file read
         except FileNotFoundError:
             linex()
             print('\033[0;97m-----------------------------------------------')
@@ -582,14 +582,14 @@ def crackfile():
 
     # Continue with further processing after file read
     # Assuming `id` is defined elsewhere in your code
+    id = []  # Initialize `id` list
     for line in lines:
         id.append(line)
-
-# Define the `id` list here if it's not defined elsewhere in your code
-id = []
+    # Perform further processing with `id`
 
 # Call the crackfile function
 crackfile()
+
 
 #-------------[ PENGATURAN-IDZ ]---------------#
  
