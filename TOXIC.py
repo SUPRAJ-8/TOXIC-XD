@@ -555,8 +555,6 @@ def menu():
 #-------------[ CRACK-FROM-FILE ]------------------#
 
 import time
-for line in lines:
-        id.append(line)
 
 def crackfile():
     while True:
