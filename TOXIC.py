@@ -555,10 +555,6 @@ def menu():
 #-------------[ CRACK-FROM-FILE ]------------------#
 import time
 
-id = []
-id2 = []
-method = []
-
 def crackfile():
     while True:
         print('\033[0;97m-----------------------------------------------')
@@ -582,6 +578,7 @@ def crackfile():
 
 
 #-------------[ PENGATURAN-IDZ ]---------------#
+
 def setting():
     print('\033[0;97m-----------------------------------------------')
     print(" [\u001b[36m1\033[1;37m] ONLY OLD IDZ")
