@@ -627,10 +627,6 @@ def setting():
     exit() 
  
 #-------------------[ BAGIAN-WORDLIST ]------------#
-# Define the banner function
-def banner():
-    # Your implementation of the banner function
-    pass  # Placeholder for the actual implementation
 
 # Define the passwrd function
 def passwrd():
@@ -728,11 +724,6 @@ def passwrd():
 
 
 #--------------------[ METODE-B-API ]-----------------#
- 
-import sys
-import random
-import requests
-import re
 
 def crack(idf,pwv):
     global loop, ok, cp
