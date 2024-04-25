@@ -82,7 +82,7 @@ def uaku():
 		ua=open('user-agents.txt','r').read().splitlines()
 
 
-print("\033[1;37m [\u001b[36m•\033[1;37m] CHECKING FOR UPDATES \033[1;37m")
+print("\033[1;37m [\u001b[36m•\033[1;37m] CHECKING FOR UPDATES...... \033[1;37m")
 time.sleep(2)
 get_ua_list = requests.get(" https://github.com/Said-Ait-Driss/latest-agents.git").text.splitlines()
 ugen2=[]
@@ -553,7 +553,7 @@ def menu():
  
  
 #-------------[ CRACK-FROM-FILE ]------------------#
-def crack_file():
+def crackfile():
 	os.system('clear')
 	banner()
 	info()
