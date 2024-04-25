@@ -556,24 +556,12 @@ def menu():
 import os
 import time
 
-def banner():
-    print("**************************************")
-    print("*              My Script              *")
-    print("**************************************")
-
-def info():
-    print("Welcome to My Script!")
-    print("This script performs some useful tasks.")
-
 def crackfile():
     os.system('clear')
-    banner()
-    info()
     print(' [\u001b[36m•\033[1;37m] Input File Name Without /sdcard ')
     print(' [\u001b[36m•\033[1;37m] Example: example.txt')
     
     while True:
-        linex()
         filename = input(' [\u001b[36m•\033[1;37m] Enter The Name Of File : ')
         o = '/sdcard/' + filename
         
@@ -585,16 +573,13 @@ def crackfile():
                 print(line)
             break  # Exit the loop if file is successfully read
         except FileNotFoundError:
-            linex()
+            print('\033[0;97m-----------------------------------------------')
             print(' [×] File Does Not Exist')
             input(" Please Press Enter to retry...")
 
-# Define the linex function if it's not defined elsewhere in your code
-def linex():
-    print("\n" * 100)
-
 # Call the crackfile function
 crackfile()
+
 
 
 
