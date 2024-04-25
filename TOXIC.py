@@ -555,6 +555,10 @@ def menu():
 #-------------[ CRACK-FROM-FILE ]------------------#
 import time
 
+id = []
+id2 = []
+method = []
+
 def crackfile():
     while True:
         print('\033[0;97m-----------------------------------------------')
