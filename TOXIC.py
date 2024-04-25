@@ -553,23 +553,25 @@ def menu():
  
  
 #-------------[ CRACK-FROM-FILE ]------------------#
-import os
 import time
 
 def crackfile():
-    os.system('clear')
-    print(' [\u001b[36m•\033[1;37m] Input File Name Without /sdcard ')
-    print(' [\u001b[36m•\033[1;37m] Example: example.txt')
-    
     while True:
+        print('\033[0;97m-----------------------------------------------')
         filename = input(' [\u001b[36m•\033[1;37m] Enter The Name Of File : ')
-        o = '/sdcard/' + filename
-        
-        try:lin = open(o).read().splitlines()
+        o = '/sdcard/'+filename  # Form the complete file path
+        try:
+            with open(o) as file:
+                lines = file.read().splitlines()
+            break  # Exit the loop if the file is successfully opened
         except FileNotFoundError:
             print('\033[0;97m-----------------------------------------------')
-            print(' [×] File Does Not Exist')
+            print(' [×] FILE NOT FOUND')
             input(" Please Press Enter to retry...")
+    
+    # Assuming `id` is defined elsewhere in your code
+    for line in lines:
+        id.append(line)
 
 # Call the crackfile function
 crackfile()
