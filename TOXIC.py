@@ -444,7 +444,7 @@ def linex():
     print('\033[1;37m')
 def animation(u):
     for e in u + "\n":sys.stdout.write(e);sys.stdout.flush();time.sleep(0.01)
-logo ="""
+logo =r"""
  \033[1;91m_____ _____  _____ ____ 
  \033[1;92m|_   _/ _ \ \/ |_ _/ ___|
  \033[1;93m  | || | | \  / | | |    
